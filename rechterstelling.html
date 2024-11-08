@@ -132,58 +132,58 @@
         /* Coördinaten voor de 12 lades (geschatte waarden, afstemming nodig) */
         #lade-1 {
             position: absolute;
-            top: 24%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 18%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-2 {
             position: absolute;
-            top: 29.4%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 26%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-3 {
             position: absolute;
-            top: 34.6%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 34%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-4 {
             position: absolute;
-            top: 39.7%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 42%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-5 {
             position: absolute;
-            top: 47.3%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 50%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-6 {
             position: absolute;
-            top: 52.7%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 4.2%;
+            top: 58%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         #lade-7 {
             position: absolute;
-            top: 57.5%;
-            left: 32.5%;
-            width: 35.5%;
-            height: 8.8%;
+            top: 66%;
+            left: 32%;
+            width: 36%;
+            height: 7%;
         }
 
         
@@ -327,19 +327,98 @@
             lade.addEventListener('click', function() {
                 const modal = document.createElement('div');
                 modal.className = 'modal-overlay';
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <h3>Inhoud Lade ${lade.id.replace('lade-', '')}</h3>
-                        <ul>
-                            <li><button class="artikel-knop">Artikel 1 (ID: 001)</button></li>
-                            <li><button class="artikel-knop">Artikel 2 (ID: 002)</button></li>
-                            <li><button class="artikel-knop">Artikel 3 (ID: 003)</button></li>
-                            <li><button class="artikel-knop">Artikel 4 (ID: 004)</button></li>
-                            <li><button class="artikel-knop">Artikel 5 (ID: 005)</button></li>
-                        </ul>
-                        <button class="close-modal">Sluiten</button>
-                    </div>
-                `;
+                let modalContent = '';
+
+                switch (lade.id) {
+                    case 'lade-1':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 1</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel A (ID: 101)</button></li>
+                                    <li><button class="artikel-knop">Artikel B (ID: 102)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-2':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 2</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel C (ID: 201)</button></li>
+                                    <li><button class="artikel-knop">Artikel D (ID: 202)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-3':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 3</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel E (ID: 301)</button></li>
+                                    <li><button class="artikel-knop">Artikel F (ID: 302)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-4':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 4</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel G (ID: 401)</button></li>
+                                    <li><button class="artikel-knop">Artikel H (ID: 402)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-5':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 5</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel I (ID: 501)</button></li>
+                                    <li><button class="artikel-knop">Artikel J (ID: 502)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-6':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 6</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel K (ID: 601)</button></li>
+                                    <li><button class="artikel-knop">Artikel L (ID: 602)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    case 'lade-7':
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade 7</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Artikel M (ID: 701)</button></li>
+                                    <li><button class="artikel-knop">Artikel N (ID: 702)</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                        break;
+                    default:
+                        modalContent = `
+                            <div class="modal-content">
+                                <h3>Inhoud Lade</h3>
+                                <ul>
+                                    <li><button class="artikel-knop">Geen artikelen beschikbaar</button></li>
+                                </ul>
+                                <button class="close-modal">Sluiten</button>
+                            </div>`;
+                }
+
+                modal.innerHTML = modalContent;
                 document.body.appendChild(modal);
 
                 const closeModal = modal.querySelector('.close-modal');
@@ -428,7 +507,7 @@
             </ul>
         </div>
         <div class="container">
-            <img id="stelling-afbeelding" src="Afbeeldingen/Rechter_Stelling_Bus.jpg" alt="Rechter Stelling">
+            <img id="stelling-afbeelding" src="Afbeeldingen/rechter_stelling_bus.jpg" alt="Rechter Stelling">
             <div id="lade-1" class="lade-overlay">Lade 1</div>
             <div id="lade-2" class="lade-overlay">Lade 2</div>
             <div id="lade-3" class="lade-overlay">Lade 3</div>
