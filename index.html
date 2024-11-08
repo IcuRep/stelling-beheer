@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voorraadbeheer Opel Movano</title>
+       <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #container {
+            display: none;
+        }
+
+        #logo-container {
+            background-color: #fff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        #logo {
+            height: 60px;
+        }
+
+        #title-container {
+            background-color: #006699;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .container {
+            position: relative;
+            display: block;
+            max-width: 900px;
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #bus-afbeelding {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .stelling-overlay {
+            position: absolute;
+            border: 2px dashed #006699;  /* Duidelijkere markeringkleur voor een professionelere uitstraling */
+            background-color: rgba(0, 102, 153, 0.2); /* Transparante blauwe achtergrond voor duidelijke selectie */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .stelling-overlay:hover {
+            background-color: rgba(0, 102, 153, 0.4);
+            transform: scale(1.05);
+        }
+
+        .stelling-overlay::after {
+            content: attr(title);
+            position: absolute;
+            top: -25px;
+            left: 0;
+            background-color: #006699;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Coördinaten voor de overlays (gebaseerd op jouw afbeelding) */
+        #stelling-linkerzijde {
+            top: 62px;
+            left: 127px;
+            width: 478px;  /* Samengevoegde breedte van de twee bovenste stellingen */
+            height: 96px;
+        }
+
+        #stelling-rechterzijde {
+            top: 275px;
+            left: 150px;
+            width: 280px;
+            height: 70px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #006699;
+            color: #fff;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media queries voor iPad en iPhone */
+        @media (max-width: 768px) {
+            #title-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .stelling-overlay::after {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #title-container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .stelling-overlay::after {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-container">
+        <img id="logo" src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bonarius Logo">
+    </div>
+    <div id="title-container">
+        <h1>Voorraadbeheer Opel Movano</h1>
+    </div>
+    <div class="container">
+        <img id="bus-afbeelding" src="bovenkant-bus-afbeelding.jpg" alt="Bovenkant bedrijfsbus">
+        <a href="linkerstelling.html">
+            <div id="stelling-linkerzijde" class="stelling-overlay" title="Stelling Linkerzijde"></div>
+        </a>
+        <a href="rechterstelling.html">
+            <div id="stelling-rechterzijde" class="stelling-overlay" title="Stelling Rechterzijde"></div>
+        </a>
+    </div>
+    <footer>
+        &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+    </footer>
+</body>
+</html>

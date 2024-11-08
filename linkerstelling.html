@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linker Stelling - Vooraanzicht</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #logo-container {
+            background-color: #fff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        #logo {
+            height: 60px;
+        }
+
+        #title-container {
+            background-color: #006699;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .content {
+            display: flex;
+            margin: 20px;
+        }
+
+        .menu {
+            width: fit-content;
+            height: fit-content;
+            padding: 40px;
+            background-color: #006699;
+            color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .menu h2 {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 15px 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            color: #b3e5fc;
+        }
+
+        .menu ul li a:hover + .lade-overlay-highlight {
+            background-color: rgba(0, 102, 153, 0.2);
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        #stelling-afbeelding {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .lade-overlay {
+            position: absolute;
+            border: 2px dashed #006699;
+            background-color: rgba(0, 102, 153, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .lade-overlay:hover {
+            background-color: rgba(0, 102, 153, 0.4);
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #006699;
+            color: #fff;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Coördinaten voor de 12 lades (geschatte waarden, afstemming nodig) */
+        #lade-1 {
+            top: 44%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-2 {
+            top: 47.2%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-3 {
+            top: 50.4%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-4 {
+            top: 53.5%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-5 {
+            top: 56.4%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-6 {
+            top: 59.4%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-7 {
+            top: 62.4%;
+            left: 20%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-8 {
+            top: 41%;
+            left: 51%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-9 {
+            top: 44%;
+            left: 51%;
+            width: 30%;
+            height: 2.5%;
+        }
+
+        #lade-10 {
+            top: 47.1%;
+            left: 51%;
+            width: 30%;
+            height: 5%;
+        }
+
+        #lade-11 {
+            top: 53%;
+            left: 51%;
+            width: 30%;
+            height: 5%;
+        }
+
+        #lade-12 {
+            top: 59%;
+            left: 51%;
+            width: 30%;
+            height: 5%;
+        }
+    .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-content h3 {
+            margin-top: 0;
+        }
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .modal-content ul li {
+            margin: 10px 0;
+            padding: 5px;
+            background: #f4f4f4;
+            border-radius: 4px;
+        }
+        .close-modal {
+            background: #006699;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .close-modal:hover {
+            background: #004d66;
+        }
+    .artikel-knop {
+            background: #006699;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .artikel-knop:hover {
+            background: #004d66;
+        }
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuLinks = document.querySelectorAll('.menu ul li a');
+        const ladeOverlays = document.querySelectorAll('.lade-overlay');
+        const bestellijstKnop = document.getElementById('bestellijst-knop');
+        const bestellijstContainer = document.createElement('div');
+
+        // Bestellijst container
+        bestellijstContainer.id = 'bestellijst-container';
+        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
+        bestellijstContainer.innerHTML = `
+            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
+            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; font-size: 0.9em;"></ul>
+            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
+            <button id="leeg-bestellijst" style="background: #cc0000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Leegmaken</button>
+            <button id="stuur-bestellijst" style="background: #008000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Bestellijst naar e-mail</button>
+        `;
+        document.body.appendChild(bestellijstContainer);
+
+        // Load saved bestellijst from localStorage
+        const savedBestellijst = localStorage.getItem('bestellijst');
+        if (savedBestellijst) {
+            document.getElementById('bestellijst').innerHTML = savedBestellijst;
+        }
+
+        // Event to open the bestellijst container
+        bestellijstKnop.addEventListener('click', function() {
+            bestellijstContainer.style.display = 'block';
+        });
+
+        // Event to close the bestellijst container
+        const sluitBestellijst = bestellijstContainer.querySelector('#sluit-bestellijst');
+        sluitBestellijst.addEventListener('click', function() {
+            bestellijstContainer.style.display = 'none';
+        });
+
+        // Event to clear the bestellijst
+        const leegBestellijst = bestellijstContainer.querySelector('#leeg-bestellijst');
+        leegBestellijst.addEventListener('click', function() {
+            document.getElementById('bestellijst').innerHTML = '';
+            localStorage.removeItem('bestellijst');
+        });
+
+        // New email functionality
+        const stuurBestellijst = bestellijstContainer.querySelector('#stuur-bestellijst');
+        stuurBestellijst.addEventListener('click', function() {
+            const bestellijstItems = Array.from(document.getElementById('bestellijst').children)
+                .map(item => item.textContent)
+                .join('%0A');
+
+            if (bestellijstItems) {
+                const subject = 'Materiaal Bestellijst';
+                const body = `Beste,%0A%0AOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?%0A%0A${bestellijstItems}`;
+                window.location.href = `mailto:?subject=${subject}&body=${body}`;
+
+                // Maak de bestellijst leeg na het versturen
+                document.getElementById('bestellijst').innerHTML = '';
+                localStorage.removeItem('bestellijst');
+            } else {
+                alert('De bestellijst is leeg.');
+            }
+        });
+
+        // Menu link click event to open the corresponding lade
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetLade = document.getElementById(targetId);
+                if (targetLade) {
+                    targetLade.scrollIntoView({ behavior: 'smooth' });
+                    targetLade.dispatchEvent(new Event('click'));
+                }
+            });
+        });
+
+        // Lade click event to open modal
+        ladeOverlays.forEach(lade => {
+            lade.addEventListener('click', function() {
+                const modal = document.createElement('div');
+                modal.className = 'modal-overlay';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <h3>Inhoud Lade ${lade.id.replace('lade-', '')}</h3>
+                        <ul>
+                            <li><button class="artikel-knop">Artikel 1 (ID: 001)</button></li>
+                            <li><button class="artikel-knop">Artikel 2 (ID: 002)</button></li>
+                            <li><button class="artikel-knop">Artikel 3 (ID: 003)</button></li>
+                            <li><button class="artikel-knop">Artikel 4 (ID: 004)</button></li>
+                            <li><button class="artikel-knop">Artikel 5 (ID: 005)</button></li>
+                        </ul>
+                        <button class="close-modal">Sluiten</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                const closeModal = modal.querySelector('.close-modal');
+                closeModal.addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                });
+
+                const artikelKnoppen = modal.querySelectorAll('.artikel-knop');
+                artikelKnoppen.forEach(knop => {
+                    knop.addEventListener('click', function() {
+                        const artikelNaam = knop.textContent;
+                        const aantal = prompt(`Hoeveel van ${artikelNaam} wilt u toevoegen aan de bestellijst?`, '1');
+                        if (aantal && !isNaN(aantal) && aantal > 0) {
+                            const bevestig = confirm(`Wilt u ${aantal}x ${artikelNaam} toevoegen aan de bestellijst?`);
+                            if (bevestig) {
+                                const bestellijstItem = `${aantal}x ${artikelNaam}`;
+                                const bestellijst = document.getElementById('bestellijst');
+                                const listItem = document.createElement('li');
+                                listItem.textContent = bestellijstItem;
+                                bestellijst.appendChild(listItem);
+                                localStorage.setItem('bestellijst', bestellijst.innerHTML);
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    });
+</script>
+    <style>
+        .highlight-overlay {
+            background-color: rgba(255, 255, 0, 0.4) !important;
+        }
+    </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const bestellijstKnop = document.getElementById('bestellijst-knop');
+        const bestellijstContainer = document.createElement('div');
+        bestellijstContainer.id = 'bestellijst-container';
+        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
+        bestellijstContainer.innerHTML = `
+            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
+            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px;"></ul>
+            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
+        `;
+        document.body.appendChild(bestellijstContainer);
+
+        bestellijstKnop.addEventListener('click', function() {
+            bestellijstContainer.style.display = 'block';
+        });
+
+        bestellijstKnop.addEventListener('click', function() {
+            bestellijstContainer.style.display = 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            const sluitBestellijst = document.getElementById('sluit-bestellijst');
+        sluitBestellijst.addEventListener('click', function() {
+            bestellijstContainer.style.display = 'none';
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="logo-container">
+        <img id="logo" src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bonarius Logo">
+        <button id="bestellijst-knop" style="position: absolute; top: 20px; right: 20px; padding: 10px 20px; background-color: #006699; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Bestellijst</button>
+    </div>
+    
+    <div id="title-container">
+        <h1>Linker Stelling - Vooraanzicht</h1>
+    </div>
+    <div class="content">
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#lade-1">Lade 1</a></li>
+                <li><a href="#lade-2">Lade 2</a></li>
+                <li><a href="#lade-3">Lade 3</a></li>
+                <li><a href="#lade-4">Lade 4</a></li>
+                <li><a href="#lade-5">Lade 5</a></li>
+                <li><a href="#lade-6">Lade 6</a></li>
+                <li><a href="#lade-7">Lade 7</a></li>
+                <li><a href="#lade-8">Lade 8</a></li>
+                <li><a href="#lade-9">Lade 9</a></li>
+                <li><a href="#lade-10">Lade 10</a></li>
+                <li><a href="#lade-11">Lade 11</a></li>
+                <li><a href="#lade-12">Lade 12</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <img id="stelling-afbeelding" src="Linker Stelling Bus.jpg" alt="Linker Stelling">
+            <div id="lade-1" class="lade-overlay">Lade 1</div>
+            <div id="lade-2" class="lade-overlay">Lade 2</div>
+            <div id="lade-3" class="lade-overlay">Lade 3</div>
+            <div id="lade-4" class="lade-overlay">Lade 4</div>
+            <div id="lade-5" class="lade-overlay">Lade 5</div>
+            <div id="lade-6" class="lade-overlay">Lade 6</div>
+            <div id="lade-7" class="lade-overlay">Lade 7</div>
+            <div id="lade-8" class="lade-overlay">Lade 8</div>
+            <div id="lade-9" class="lade-overlay">Lade 9</div>
+            <div id="lade-10" class="lade-overlay">Lade 10</div>
+            <div id="lade-11" class="lade-overlay">Lade 11</div>
+            <div id="lade-12" class="lade-overlay">Lade 12</div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
