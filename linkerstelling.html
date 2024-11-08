@@ -80,10 +80,6 @@
             color: #b3e5fc;
         }
 
-        .menu ul li a:hover + .lade-overlay-highlight {
-            background-color: rgba(0, 102, 153, 0.2);
-        }
-
         .container {
             position: relative;
             max-width: 800px;
@@ -131,7 +127,6 @@
 
         /* Coördinaten voor de 12 lades (geschatte waarden, afstemming nodig) */
         #lade-1 {
-            position: absolute;
             top: 44%;
             left: 20%;
             width: 30%;
@@ -139,7 +134,6 @@
         }
 
         #lade-2 {
-            position: absolute;
             top: 47.2%;
             left: 20%;
             width: 30%;
@@ -147,7 +141,6 @@
         }
 
         #lade-3 {
-            position: absolute;
             top: 50.4%;
             left: 20%;
             width: 30%;
@@ -155,7 +148,6 @@
         }
 
         #lade-4 {
-            position: absolute;
             top: 53.5%;
             left: 20%;
             width: 30%;
@@ -163,7 +155,6 @@
         }
 
         #lade-5 {
-            position: absolute;
             top: 56.4%;
             left: 20%;
             width: 30%;
@@ -171,7 +162,6 @@
         }
 
         #lade-6 {
-            position: absolute;
             top: 59.4%;
             left: 20%;
             width: 30%;
@@ -179,7 +169,6 @@
         }
 
         #lade-7 {
-            position: absolute;
             top: 62.4%;
             left: 20%;
             width: 30%;
@@ -187,7 +176,6 @@
         }
 
         #lade-8 {
-            position: absolute;
             top: 41%;
             left: 51%;
             width: 30%;
@@ -195,7 +183,6 @@
         }
 
         #lade-9 {
-            position: absolute;
             top: 44%;
             left: 51%;
             width: 30%;
@@ -203,7 +190,6 @@
         }
 
         #lade-10 {
-            position: absolute;
             top: 47.1%;
             left: 51%;
             width: 30%;
@@ -211,7 +197,6 @@
         }
 
         #lade-11 {
-            position: absolute;
             top: 53%;
             left: 51%;
             width: 30%;
@@ -219,13 +204,13 @@
         }
 
         #lade-12 {
-            position: absolute;
             top: 59%;
             left: 51%;
             width: 30%;
             height: 5%;
         }
-    .modal-overlay {
+
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -237,6 +222,7 @@
             justify-content: center;
             z-index: 1000;
         }
+
         .modal-content {
             background: #fff;
             padding: 20px;
@@ -247,19 +233,23 @@
             max-height: 80vh;
             overflow-y: auto;
         }
+
         .modal-content h3 {
             margin-top: 0;
         }
+
         .modal-content ul {
             list-style: none;
             padding: 0;
         }
+
         .modal-content ul li {
             margin: 10px 0;
             padding: 5px;
             background: #f4f4f4;
             border-radius: 4px;
         }
+
         .close-modal {
             background: #006699;
             color: #fff;
@@ -269,10 +259,12 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
         .close-modal:hover {
             background: #004d66;
         }
-    .artikel-knop {
+
+        .artikel-knop {
             background: #006699;
             color: #fff;
             border: none;
@@ -280,101 +272,128 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         .artikel-knop:hover {
             background: #004d66;
         }
     </style>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuLinks = document.querySelectorAll('.menu ul li a');
-        const ladeOverlays = document.querySelectorAll('.lade-overlay');
-        const bestellijstKnop = document.getElementById('bestellijst-knop');
-        const bestellijstContainer = document.createElement('div');
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuLinks = document.querySelectorAll('.menu ul li a');
+            const ladeOverlays = document.querySelectorAll('.lade-overlay');
+            const bestellijstKnop = document.getElementById('bestellijst-knop');
+            const bestellijstContainer = document.createElement('div');
 
-        // Bestellijst container
-        bestellijstContainer.id = 'bestellijst-container';
-        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
-        bestellijstContainer.innerHTML = `
-            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
-            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; font-size: 0.9em;"></ul>
-            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
-            <button id="leeg-bestellijst" style="background: #cc0000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Leegmaken</button>
-            <button id="stuur-bestellijst" style="background: #008000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Bestellijst naar e-mail</button>
-        `;
-        document.body.appendChild(bestellijstContainer);
-
-        // Load saved bestellijst from localStorage
-        const savedBestellijst = localStorage.getItem('bestellijst');
-        if (savedBestellijst) {
-            document.getElementById('bestellijst').innerHTML = savedBestellijst;
-        }
-
-        // Event to open the bestellijst container
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        // Event to close the bestellijst container
-        const sluitBestellijst = bestellijstContainer.querySelector('#sluit-bestellijst');
-        sluitBestellijst.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'none';
-        });
-
-        // Event to clear the bestellijst
-        const leegBestellijst = bestellijstContainer.querySelector('#leeg-bestellijst');
-        leegBestellijst.addEventListener('click', function() {
-            document.getElementById('bestellijst').innerHTML = '';
-            localStorage.removeItem('bestellijst');
-        });
-
-        // New email functionality
-        const stuurBestellijst = bestellijstContainer.querySelector('#stuur-bestellijst');
-        stuurBestellijst.addEventListener('click', function() {
-            const bestellijstItems = Array.from(document.getElementById('bestellijst').children)
-                .map(item => item.textContent)
-                .join('%0A');
-
-            if (bestellijstItems) {
-                const subject = 'Materiaal Bestellijst';
-                const body = `Beste,%0A%0AOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?%0A%0A${bestellijstItems}`;
-                window.location.href = `mailto:?subject=${subject}&body=${body}`;
-
-                // Maak de bestellijst leeg na het versturen
-                document.getElementById('bestellijst').innerHTML = '';
-                localStorage.removeItem('bestellijst');
-            } else {
-                alert('De bestellijst is leeg.');
-            }
-        });
-
-        // Menu link click event to open the corresponding lade
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetLade = document.getElementById(targetId);
-                if (targetLade) {
-                    targetLade.scrollIntoView({ behavior: 'smooth' });
-                    targetLade.dispatchEvent(new Event('click'));
-                }
+            // Lade click event to open modal
+            ladeOverlays.forEach(lade => {
+                lade.addEventListener('click', function() {
+                    openLadeModal(lade);
+                });
             });
-        });
 
-        // Lade click event to open modal
-        ladeOverlays.forEach(lade => {
-            lade.addEventListener('click', function() {
+            // Menu link click event to open the corresponding lade
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetLade = document.getElementById(targetId);
+                    if (targetLade) {
+                        targetLade.scrollIntoView({ behavior: 'smooth' });
+                        // Trigger the click event to open the modal
+                        openLadeModal(targetLade);
+                    }
+                });
+            });
+
+            // Function to open the modal for a given lade
+            function openLadeModal(lade) {
+                const ladeNummer = lade.id.replace('lade-', '');
                 const modal = document.createElement('div');
                 modal.className = 'modal-overlay';
+
+                // Voorbeeldinhoud per lade
+                let ladeInhoud = '';
+                switch (ladeNummer) {
+                    case '1':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Schroeven (ID: 001)</button></li>
+                            <li><button class="artikel-knop">Pluggen (ID: 002)</button></li>
+                        `;
+                        break;
+                    case '2':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Moeren (ID: 003)</button></li>
+                            <li><button class="artikel-knop">Bouten (ID: 004)</button></li>
+                        `;
+                        break;
+                    case '3':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Ringen (ID: 005)</button></li>
+                            <li><button class="artikel-knop">Slangklemmen (ID: 006)</button></li>
+                        `;
+                        break;
+                    case '4':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Kabels (ID: 007)</button></li>
+                            <li><button class="artikel-knop">Tie-wraps (ID: 008)</button></li>
+                        `;
+                        break;
+                    case '5':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Verfkwasten (ID: 009)</button></li>
+                            <li><button class="artikel-knop">Schuurpapier (ID: 010)</button></li>
+                        `;
+                        break;
+                    case '6':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Afdekfolie (ID: 011)</button></li>
+                            <li><button class="artikel-knop">Tape (ID: 012)</button></li>
+                        `;
+                        break;
+                    case '7':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Boormachine (ID: 013)</button></li>
+                            <li><button class="artikel-knop">Boorbits (ID: 014)</button></li>
+                        `;
+                        break;
+                    case '8':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Sleutelset (ID: 015)</button></li>
+                            <li><button class="artikel-knop">Tangenset (ID: 016)</button></li>
+                        `;
+                        break;
+                    case '9':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Vastzetklemmen (ID: 017)</button></li>
+                            <li><button class="artikel-knop">Vijlenset (ID: 018)</button></li>
+                        `;
+                        break;
+                    case '10':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Lijmpistool (ID: 019)</button></li>
+                            <li><button class="artikel-knop">Lijmsticks (ID: 020)</button></li>
+                        `;
+                        break;
+                    case '11':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Veiligheidsbril (ID: 021)</button></li>
+                            <li><button class="artikel-knop">Handschoenen (ID: 022)</button></li>
+                        `;
+                        break;
+                    case '12':
+                        ladeInhoud = `
+                            <li><button class="artikel-knop">Stofmasker (ID: 023)</button></li>
+                            <li><button class="artikel-knop">Oordopjes (ID: 024)</button></li>
+                        `;
+                        break;
+                    default:
+                        ladeInhoud = `<li><button class="artikel-knop">Artikel onbekend</button></li>`;
+                }
+
                 modal.innerHTML = `
                     <div class="modal-content">
-                        <h3>Inhoud Lade ${lade.id.replace('lade-', '')}</h3>
-                        <ul>
-                            <li><button class="artikel-knop">Artikel 1 (ID: 001)</button></li>
-                            <li><button class="artikel-knop">Artikel 2 (ID: 002)</button></li>
-                            <li><button class="artikel-knop">Artikel 3 (ID: 003)</button></li>
-                            <li><button class="artikel-knop">Artikel 4 (ID: 004)</button></li>
-                            <li><button class="artikel-knop">Artikel 5 (ID: 005)</button></li>
-                        </ul>
+                        <h3>Inhoud Lade ${ladeNummer}</h3>
+                        <ul>${ladeInhoud}</ul>
                         <button class="close-modal">Sluiten</button>
                     </div>
                 `;
@@ -403,44 +422,9 @@
                         }
                     });
                 });
-            });
+            }
         });
-    });
-</script>
-    <style>
-        .highlight-overlay {
-            background-color: rgba(255, 255, 0, 0.4) !important;
-        }
-    </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const bestellijstKnop = document.getElementById('bestellijst-knop');
-        const bestellijstContainer = document.createElement('div');
-        bestellijstContainer.id = 'bestellijst-container';
-        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
-        bestellijstContainer.innerHTML = `
-            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
-            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px;"></ul>
-            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
-        `;
-        document.body.appendChild(bestellijstContainer);
-
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        document.addEventListener('click', function(event) {
-            const sluitBestellijst = document.getElementById('sluit-bestellijst');
-        sluitBestellijst.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'none';
-        });
-    });
-</script>
+    </script>
 </head>
 <body>
     <div id="logo-container">
@@ -470,7 +454,7 @@
             </ul>
         </div>
         <div class="container">
-            <img id="stelling-afbeelding" src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling">
+            <img id="stelling-afbeelding" src="Linker Stelling Bus.jpg" alt="Linker Stelling">
             <div id="lade-1" class="lade-overlay">Lade 1</div>
             <div id="lade-2" class="lade-overlay">Lade 2</div>
             <div id="lade-3" class="lade-overlay">Lade 3</div>
@@ -490,6 +474,3 @@
     </footer>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-
