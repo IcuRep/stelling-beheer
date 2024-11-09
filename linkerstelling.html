@@ -102,14 +102,14 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 90%;
-            height: 90%;
+            width: 100%;
+            height: 100%;
             border-radius: 8px;
         }
 
         .lade-overlay {
             position: absolute;
-            background: transparent;  /* Maakt de achtergrond transparant */
+            background: rgba(0, 102, 153, 0.2);  /* Maakt de achtergrond transparant */
             border: none;              /* Verwijdert de rand */
             cursor: pointer;
             display: flex;
@@ -135,85 +135,85 @@
 
         /* Coördinaten voor de 12 lades (geschatte waarden, afstemming nodig) */
         #lade-1 {
-            top: 39%;
-            left: 8.5%;
+            top: 44.4%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-2 {
-            top: 42.2%;
-            left: 8.5%;
+            top: 47.5%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-3 {
-            top: 45.4%;
-            left: 8.5%;
+            top: 50.7%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-4 {
-            top: 48.5%;
-            left: 8.5%;
+            top: 54%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-5 {
-            top: 51.4%;
-            left: 8.5%;
+            top: 57%;
+            left: 12%;
             width: 36%;z
             height: 2.5%;
         }
 
         #lade-6 {
-            top: 55%;
-            left: 8.5%;
+            top: 60.4%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-7 {
-            top: 58%;
-            left: 8.5%;
+            top: 63.7%;
+            left: 12%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-8 {
-            top: 36.5%;
-            left: 46.5%;
+            top: 41%;
+            left: 53.5%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-9 {
-            top: 39.5%;
-            left: 46.5%;
+            top: 44.3%;
+            left: 53.5%;
             width: 36%;
             height: 2.5%;
         }
 
         #lade-10 {
-            top: 42.5%;
-            left: 46.5%;
+            top: 48%;
+            left: 53.5%;
             width: 36%;
             height: 5%;
         }
 
         #lade-11 {
-            top: 48%;
-            left: 46.5%;
+            top: 54%;
+            left: 53.5%;
             width: 36%;
             height: 5%;
         }
 
         #lade-12 {
-            top: 54%;
-            left: 46.5%;
+            top: 60.5%;
+            left: 53.5%;
             width: 36%;
             height: 5%;
         }
@@ -279,12 +279,100 @@
         /* Pas de afbeelding aan voor kleinere schermen */
         @media only screen and (max-width: 600px) {
             #stelling-afbeelding {
-                width: 90%;  /* Geeft de afbeelding meer ruimte op mobiele apparaten */
+                width: 100%;  /* Geeft de afbeelding meer ruimte op mobiele apparaten */
             }
 
             .container {
                 padding: 10px;  /* Verminder de padding om meer ruimte voor de afbeelding te creëren */
             }
+
+            .lade-overlay {
+                font-size: 0.6em;  /* Verklein de tekstgrootte van de overlays op kleinere schermen */
+            }
+
+   #lade-1 {
+        top: 38%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%; /* Verminder de breedte van de overlay */
+        left: 13%;  /* Pas de linkerpositie aan voor centreren */
+        height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+    }
+
+    #lade-2 {
+        top: 42.8%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%;
+    }
+
+    #lade-3 {
+        top: 47%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%;
+    }
+
+    #lade-4 {
+        top: 51.3%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%;
+    }
+
+    #lade-5 {
+        top: 55.4%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%;
+    }
+
+    #lade-6 {
+        top: 59.6%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%;
+    }
+
+    #lade-7 {
+        top: 64%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 13%;
+        height: 3.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
+    
+    #lade-8 {
+        top: 40%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 54.3%;
+        height: 3.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
+    
+    #lade-9 {
+        top: 44%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 54.3%;
+        height: 3.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
+    
+    #lade-10 {
+        top: 48%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 54.3%;
+        height: 4.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
+    
+    #lade-11 {
+        top: 54.5%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 54.3%;
+        height: 4.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
+    
+    #lade-12 {
+        top: 61%;  /* Pas deze waarde aan voor betere positie */
+        width: 35%;
+        left: 54.3%;
+        height: 4.5%; /* Verhoog de hoogte iets voor de laatste lade */
+    }
         }
         /* ==== EINDE TOEGEVOEGDE CODE ==== */
     </style>
@@ -477,7 +565,7 @@
         </div>
         <div class="container">
             <div class="image-wrapper">
-                <img id="stelling-afbeelding" src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling">
+                <img id="stelling-afbeelding" src="Linker_Stelling_Bus.jpg" alt="Linker Stelling">
                 <div id="lade-1" class="lade-overlay">Lade 1</div>
                 <div id="lade-2" class="lade-overlay">Lade 2</div>
                 <div id="lade-3" class="lade-overlay">Lade 3</div>
