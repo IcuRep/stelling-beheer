@@ -347,7 +347,7 @@
     }
     
     #lade-9 {
-        top: 44.3%;  /* Pas deze waarde aan voor betere positie */
+        top: 44%;  /* Pas deze waarde aan voor betere positie */
         width: 35%;
         left: 54.3%;
         height: 3.5%; /* Verhoog de hoogte iets voor de laatste lade */
@@ -565,7 +565,7 @@
         </div>
         <div class="container">
             <div class="image-wrapper">
-                <img id="stelling-afbeelding" src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling">
+                <img id="stelling-afbeelding" src="Linker_Stelling_Bus.jpg" alt="Linker Stelling">
                 <div id="lade-1" class="lade-overlay">Lade 1</div>
                 <div id="lade-2" class="lade-overlay">Lade 2</div>
                 <div id="lade-3" class="lade-overlay">Lade 3</div>
@@ -584,5 +584,43 @@
     <footer>
         &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
     </footer>
+<script>
+// Functie om de bestellijst op te slaan naar localStorage
+function saveOrderList() {
+    const orderList = document.querySelector("#orderList"); // Vervang #orderList met de juiste selector indien nodig
+    if (orderList) {
+        localStorage.setItem("sharedOrderList", orderList.innerHTML);
+    }
+}
+
+// Functie om de bestellijst uit localStorage te laden
+function loadOrderList() {
+    const orderList = document.querySelector("#orderList"); // Vervang #orderList met de juiste selector indien nodig
+    if (orderList && localStorage.getItem("sharedOrderList")) {
+        orderList.innerHTML = localStorage.getItem("sharedOrderList");
+    }
+}
+
+// Event listener om te luisteren naar veranderingen in localStorage
+window.addEventListener("storage", function(event) {
+    if (event.key === "sharedOrderList") {
+        loadOrderList();
+    }
+});
+
+// Laad de huidige bestellijst bij het laden van de pagina
+document.addEventListener("DOMContentLoaded", function() {
+    loadOrderList();
+});
+
+// Zorg ervoor dat de save functie wordt aangeroepen wanneer een item wordt toegevoegd
+document.querySelectorAll(".addItemButton").forEach(button => {
+    button.addEventListener("click", function() {
+        // Hier kan je de code toevoegen die al gebruikt wordt om een item aan de lijst toe te voegen
+        saveOrderList();
+    });
+});
+</script>
+
 </body>
 </html>
