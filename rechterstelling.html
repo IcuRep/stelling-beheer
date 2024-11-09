@@ -240,7 +240,21 @@
         .artikel-knop:hover {
             background: #004d66;
         }
+        /* ==== TOEGEVOEGDE CODE ==== */
+        /* Pas de afbeelding aan voor kleinere schermen */
+        @media only screen and (max-width: 600px) {
+            #stelling-afbeelding {
+                width: 90%;  /* Geeft de afbeelding meer ruimte op mobiele apparaten */
+            }
+
+            .container {
+                padding: 10px;  /* Verminder de padding om meer ruimte voor de afbeelding te creëren */
+            }
+        }
+        /* ==== EINDE TOEGEVOEGDE CODE ==== */
     </style>
+
+    <!-- Overige JavaScript codes hier -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const menuLinks = document.querySelectorAll('.menu ul li a');
