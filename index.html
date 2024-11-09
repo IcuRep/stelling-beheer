@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voorraadbeheer Opel Movano</title>
-       <style>
+    <style>
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
@@ -53,7 +53,7 @@
         }
 
         #bus-afbeelding {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 8px;
         }
@@ -85,19 +85,19 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Coördinaten voor de overlays (gebaseerd op jouw afbeelding) */
+        /* Coördinaten voor de overlays (relatief aan de container) */
         #stelling-linkerzijde {
-            top: 62px;
-            left: 127px;
-            width: 478px;  /* Samengevoegde breedte van de twee bovenste stellingen */
-            height: 96px;
+            top: 15%;  /* Relatief aan de hoogte van de container */
+            left: 16.5%; /* Relatief aan de breedte van de container */
+            width: 52.5%;  /* Relatief aan de breedte van de container */
+            height: 22%; /* Relatief aan de hoogte van de container */
         }
 
         #stelling-rechterzijde {
-            top: 275px;
-            left: 150px;
-            width: 280px;
-            height: 70px;
+            top: 66%;  /* Relatief aan de hoogte van de container */
+            left: 19%; /* Relatief aan de breedte van de container */
+            width: 29%; /* Relatief aan de breedte van de container */
+            height: 16%; /* Relatief aan de hoogte van de container */
         }
 
         footer {
@@ -157,7 +157,7 @@
         <h1>Voorraadbeheer Opel Movano</h1>
     </div>
     <div class="container">
-        <img id="bus-afbeelding" src="Afbeeldingen/Boven_aanzicht_bus.jpg" alt="Bovenkant bedrijfsbus">
+        <img id="bus-afbeelding" src="bovenkant-bus-afbeelding.jpg" alt="Bovenkant bedrijfsbus">
         <a href="linkerstelling.html">
             <div id="stelling-linkerzijde" class="stelling-overlay" title="Stelling Linkerzijde"></div>
         </a>
