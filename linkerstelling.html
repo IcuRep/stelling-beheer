@@ -109,15 +109,14 @@
 
         .lade-overlay {
             position: absolute;
-            border: 2px dashed #006699;
-            background-color: rgba(0, 102, 153, 0.1);
+            background: transparent;  /* Maakt de achtergrond transparant */
+            border: none;              /* Verwijdert de rand */
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #fff;
+            color: #fff;           /* Kies een kleur voor de tekst die goed zichtbaar is */
         }
 
         .lade-overlay:hover {
