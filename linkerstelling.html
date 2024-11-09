@@ -90,10 +90,20 @@
             border-radius: 8px;
             text-align: center;
             flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stelling-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
         }
 
         #stelling-afbeelding {
-            max-width: 100%;
+            width: 80%;
             height: auto;
             border-radius: 8px;
         }
@@ -116,6 +126,91 @@
             transform: scale(1.05);
         }
 
+        /* Coördinaten voor de 12 lades (verhoudingen behouden op basis van afbeelding) */
+        #lade-1 {
+            top: 44%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-2 {
+            top: 47.2%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-3 {
+            top: 50.4%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-4 {
+            top: 53.5%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-5 {
+            top: 56.4%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-6 {
+            top: 59.7%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-7 {
+            top: 63%;
+            left: 17.5%;
+            width: 32.4%;
+            height: 2.5%;
+        }
+
+        #lade-8 {
+            top: 40.5%;
+            left: 51%;
+            width: 32%;
+            height: 2.5%;
+        }
+
+        #lade-9 {
+            top: 43.9%;
+            left: 51%;
+            width: 32%;
+            height: 2.5%;
+        }
+
+        #lade-10 {
+            top: 47.2%;
+            left: 51%;
+            width: 32%;
+            height: 5.5%;
+        }
+
+        #lade-11 {
+            top: 53.4%;
+            left: 51%;
+            width: 32%;
+            height: 5.5%;
+        }
+
+        #lade-12 {
+            top: 59.5%;
+            left: 51%;
+            width: 32%;
+            height: 6%;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -124,307 +219,7 @@
             margin-top: 40px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        /* Coördinaten voor de 12 lades (verhoudingen behouden op basis van afbeelding) */
-        #lade-1 {
-            top: 44%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-2 {
-            top: 47.2%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-3 {
-            top: 50.4%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-4 {
-            top: 53.5%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-5 {
-            top: 56.4%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-6 {
-            top: 59.4%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-7 {
-            top: 62.4%;
-            left: 12%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-8 {
-            top: 41%;
-            left: 51.5%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-9 {
-            top: 44%;
-            left: 51.5%;
-            width: 38%;
-            height: 2.5%;
-        }
-
-        #lade-10 {
-            top: 47.1%;
-            left: 51.5%;
-            width: 38%;
-            height: 5%;
-        }
-
-        #lade-11 {
-            top: 53%;
-            left: 51.5%;
-            width: 38%;
-            height: 5%;
-        }
-
-        #lade-12 {
-            top: 59%;
-            left: 51.5%;
-            width: 38%;
-            height: 5%;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
-            max-width: 400px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-content h3 {
-            margin-top: 0;
-        }
-
-        .modal-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .modal-content ul li {
-            margin: 10px 0;
-            padding: 5px;
-            background: #f4f4f4;
-            border-radius: 4px;
-        }
-
-        .close-modal {
-            background: #006699;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .close-modal:hover {
-            background: #004d66;
-        }
-
-        .artikel-knop {
-            background: #006699;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .artikel-knop:hover {
-            background: #004d66;
-        }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuLinks = document.querySelectorAll('.menu ul li a');
-            const ladeOverlays = document.querySelectorAll('.lade-overlay');
-            const bestellijstKnop = document.getElementById('bestellijst-knop');
-            const bestellijstContainer = document.createElement('div');
-
-            // Lade click event to open modal
-            ladeOverlays.forEach(lade => {
-                lade.addEventListener('click', function() {
-                    openLadeModal(lade);
-                });
-            });
-
-            // Menu link click event to open the corresponding lade
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetLade = document.getElementById(targetId);
-                    if (targetLade) {
-                        targetLade.scrollIntoView({ behavior: 'smooth' });
-                        // Trigger the click event to open the modal
-                        openLadeModal(targetLade);
-                    }
-                });
-            });
-
-            // Function to open the modal for a given lade
-            function openLadeModal(lade) {
-                const ladeNummer = lade.id.replace('lade-', '');
-                const modal = document.createElement('div');
-                modal.className = 'modal-overlay';
-
-                // Voorbeeldinhoud per lade
-                let ladeInhoud = '';
-                switch (ladeNummer) {
-                    case '1':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Schroeven (ID: 001)</button></li>
-                            <li><button class="artikel-knop">Pluggen (ID: 002)</button></li>
-                        `;
-                        break;
-                    case '2':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Moeren (ID: 003)</button></li>
-                            <li><button class="artikel-knop">Bouten (ID: 004)</button></li>
-                        `;
-                        break;
-                    case '3':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Ringen (ID: 005)</button></li>
-                            <li><button class="artikel-knop">Slangklemmen (ID: 006)</button></li>
-                        `;
-                        break;
-                    case '4':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Kabels (ID: 007)</button></li>
-                            <li><button class="artikel-knop">Tie-wraps (ID: 008)</button></li>
-                        `;
-                        break;
-                    case '5':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Verfkwasten (ID: 009)</button></li>
-                            <li><button class="artikel-knop">Schuurpapier (ID: 010)</button></li>
-                        `;
-                        break;
-                    case '6':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Afdekfolie (ID: 011)</button></li>
-                            <li><button class="artikel-knop">Tape (ID: 012)</button></li>
-                        `;
-                        break;
-                    case '7':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Boormachine (ID: 013)</button></li>
-                            <li><button class="artikel-knop">Boorbits (ID: 014)</button></li>
-                        `;
-                        break;
-                    case '8':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Sleutelset (ID: 015)</button></li>
-                            <li><button class="artikel-knop">Tangenset (ID: 016)</button></li>
-                        `;
-                        break;
-                    case '9':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Vastzetklemmen (ID: 017)</button></li>
-                            <li><button class="artikel-knop">Vijlenset (ID: 018)</button></li>
-                        `;
-                        break;
-                    case '10':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Lijmpistool (ID: 019)</button></li>
-                            <li><button class="artikel-knop">Lijmsticks (ID: 020)</button></li>
-                        `;
-                        break;
-                    case '11':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Veiligheidsbril (ID: 021)</button></li>
-                            <li><button class="artikel-knop">Handschoenen (ID: 022)</button></li>
-                        `;
-                        break;
-                    case '12':
-                        ladeInhoud = `
-                            <li><button class="artikel-knop">Stofmasker (ID: 023)</button></li>
-                            <li><button class="artikel-knop">Oordopjes (ID: 024)</button></li>
-                        `;
-                        break;
-                    default:
-                        ladeInhoud = `<li><button class="artikel-knop">Artikel onbekend</button></li>`;
-                }
-
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <h3>Inhoud Lade ${ladeNummer}</h3>
-                        <ul>${ladeInhoud}</ul>
-                        <button class="close-modal">Sluiten</button>
-                    </div>
-                `;
-                document.body.appendChild(modal);
-
-                const closeModal = modal.querySelector('.close-modal');
-                closeModal.addEventListener('click', function() {
-                    document.body.removeChild(modal);
-                });
-
-                const artikelKnoppen = modal.querySelectorAll('.artikel-knop');
-                artikelKnoppen.forEach(knop => {
-                    knop.addEventListener('click', function() {
-                        const artikelNaam = knop.textContent;
-                        const aantal = prompt(`Hoeveel van ${artikelNaam} wilt u toevoegen aan de bestellijst?`, '1');
-                        if (aantal && !isNaN(aantal) && aantal > 0) {
-                            const bevestig = confirm(`Wilt u ${aantal}x ${artikelNaam} toevoegen aan de bestellijst?`);
-                            if (bevestig) {
-                                const bestellijstItem = `${aantal}x ${artikelNaam}`;
-                                const bestellijst = document.getElementById('bestellijst');
-                                const listItem = document.createElement('li');
-                                listItem.textContent = bestellijstItem;
-                                bestellijst.appendChild(listItem);
-                                localStorage.setItem('bestellijst', bestellijst.innerHTML);
-                            }
-                        }
-                    });
-                });
-            }
-        });
-    </script>
 </head>
 <body>
     <div id="logo-container">
@@ -454,19 +249,21 @@
             </ul>
         </div>
         <div class="container">
-            <img id="stelling-afbeelding" src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling">
-            <div id="lade-1" class="lade-overlay">Lade 1</div>
-            <div id="lade-2" class="lade-overlay">Lade 2</div>
-            <div id="lade-3" class="lade-overlay">Lade 3</div>
-            <div id="lade-4" class="lade-overlay">Lade 4</div>
-            <div id="lade-5" class="lade-overlay">Lade 5</div>
-            <div id="lade-6" class="lade-overlay">Lade 6</div>
-            <div id="lade-7" class="lade-overlay">Lade 7</div>
-            <div id="lade-8" class="lade-overlay">Lade 8</div>
-            <div id="lade-9" class="lade-overlay">Lade 9</div>
-            <div id="lade-10" class="lade-overlay">Lade 10</div>
-            <div id="lade-11" class="lade-overlay">Lade 11</div>
-            <div id="lade-12" class="lade-overlay">Lade 12</div>
+            <div class="stelling-wrapper">
+                <img id="stelling-afbeelding" src="Linker Stelling Bus.jpg" alt="Linker Stelling">
+                <div id="lade-1" class="lade-overlay">Lade 1</div>
+                <div id="lade-2" class="lade-overlay">Lade 2</div>
+                <div id="lade-3" class="lade-overlay">Lade 3</div>
+                <div id="lade-4" class="lade-overlay">Lade 4</div>
+                <div id="lade-5" class="lade-overlay">Lade 5</div>
+                <div id="lade-6" class="lade-overlay">Lade 6</div>
+                <div id="lade-7" class="lade-overlay">Lade 7</div>
+                <div id="lade-8" class="lade-overlay">Lade 8</div>
+                <div id="lade-9" class="lade-overlay">Lade 9</div>
+                <div id="lade-10" class="lade-overlay">Lade 10</div>
+                <div id="lade-11" class="lade-overlay">Lade 11</div>
+                <div id="lade-12" class="lade-overlay">Lade 12</div>
+            </div>
         </div>
     </div>
     <footer>
