@@ -390,7 +390,7 @@
         bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
         bestellijstContainer.innerHTML = `
             <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
-            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; font-size: 0.9em;"></ul>
+            <ul id="orderList" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; font-size: 0.9em;"></ul>
             <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
             <button id="leeg-bestellijst" style="background: #cc0000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Leegmaken</button>
             <button id="stuur-bestellijst" style="background: #008000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Bestellijst naar e-mail</button>
@@ -565,7 +565,7 @@
         </div>
         <div class="container">
             <div class="image-wrapper">
-                <img id="stelling-afbeelding" src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling">
+                <img id="stelling-afbeelding" src="Linker_Stelling_Bus.jpg" alt="Linker Stelling">
                 <div id="lade-1" class="lade-overlay">Lade 1</div>
                 <div id="lade-2" class="lade-overlay">Lade 2</div>
                 <div id="lade-3" class="lade-overlay">Lade 3</div>
@@ -614,7 +614,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Zorg ervoor dat de save functie wordt aangeroepen wanneer een item wordt toegevoegd
-document.querySelectorAll(".addItemButton").forEach(button => {
+document.querySelectorAll(".artikel-knop").forEach(button => {
     button.addEventListener("click", function() {
         // Hier kan je de code toevoegen die al gebruikt wordt om een item aan de lijst toe te voegen
         saveOrderList();
