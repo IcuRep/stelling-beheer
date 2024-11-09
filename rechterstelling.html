@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,14 +75,11 @@
             color: #fff;
             font-weight: bold;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .menu ul li a:hover {
             color: #b3e5fc;
-        }
-
-        .menu ul li a:hover + .lade-overlay-highlight {
-            background-color: rgba(0, 102, 153, 0.2);
         }
 
         .container {
@@ -109,14 +107,14 @@
 
         .lade-overlay {
             position: absolute;
-            background: transparent;  /* Maakt de achtergrond transparant */
-            border: none;              /* Verwijdert de rand */
+            background: rgba(0, 102, 153, 0.2);
+            border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #fff;           /* Kies een kleur voor de tekst die goed zichtbaar is */
+            color: #fff;
         }
 
         .lade-overlay:hover {
@@ -125,61 +123,52 @@
         }
 
         #lade-1 {
-            top: 21.5%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            top: 24.4%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-2 {
-            top: 27.5%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            top: 29.5%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-3 {
-            top: 33%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            top: 34.6%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-4 {
-            top: 39%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            top: 40%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-5 {
-            top: 47%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            top: 48%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-6 {
             top: 53%;
-            left: 27%;
-            width: 46.5%;
-            height: 5%;
+            left: 31%;
+            width: 40%;
+            height: 4.5%;
         }
 
         #lade-7 {
-            top: 59%;
-            left: 27%;
-            width: 46.5%;
-            height: 9%;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #006699;
-            color: #fff;
-            margin-top: 40px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            top: 59.5%;
+            left: 31%;
+            width: 40%;
+            height: 7%;
         }
 
         .modal-overlay {
@@ -194,6 +183,7 @@
             justify-content: center;
             z-index: 1000;
         }
+
         .modal-content {
             background: #fff;
             padding: 20px;
@@ -204,19 +194,7 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-        .modal-content h3 {
-            margin-top: 0;
-        }
-        .modal-content ul {
-            list-style: none;
-            padding: 0;
-        }
-        .modal-content ul li {
-            margin: 10px 0;
-            padding: 5px;
-            background: #f4f4f4;
-            border-radius: 4px;
-        }
+
         .close-modal {
             background: #006699;
             color: #fff;
@@ -226,125 +204,187 @@
             cursor: pointer;
             border-radius: 4px;
         }
-        .close-modal:hover {
-            background: #004d66;
+
+        #bestellijst-container {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: #ffffff;
+            padding: 20px;
+            border: 2px solid #006699;
+            border-radius: 12px;
+            max-width: 400px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        #bestellijst {
+            list-style: none;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
         .artikel-knop {
             background: #006699;
             color: #fff;
             border: none;
-            padding: 5px 10px;
+            padding: 10px;
             border-radius: 4px;
             cursor: pointer;
+            margin: 5px 0;
+            width: 100%;
+            text-align: left;
+            display: block;
         }
+
         .artikel-knop:hover {
             background: #004d66;
         }
+
         /* ==== TOEGEVOEGDE CODE ==== */
         /* Pas de afbeelding aan voor kleinere schermen */
         @media only screen and (max-width: 600px) {
             #stelling-afbeelding {
-                width: 90%;  /* Geeft de afbeelding meer ruimte op mobiele apparaten */
+                width: 100%;  /* Geeft de afbeelding meer ruimte op mobiele apparaten */
             }
 
             .container {
                 padding: 10px;  /* Verminder de padding om meer ruimte voor de afbeelding te creëren */
             }
+
+            .lade-overlay {
+                font-size: 0.8em;  /* Verklein de tekstgrootte van de overlays op kleinere schermen */
+            }
+
+            #lade-1 {
+                top: 23.7%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-2 {
+                top: 29.3%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-3 {
+                top: 34.9%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-4 {
+                top: 40.2%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-5 {
+                top: 48%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-6 {
+                top: 53.2%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 4%; /* Verhoog de hoogte iets om overlapping te voorkomen */
+            }
+
+            #lade-7 {
+                top: 58%;  /* Pas deze waarde aan voor betere positie */
+                width: 60%; /* Verminder de breedte van de overlay */
+                left: 22%;  /* Pas de linkerpositie aan voor centreren */
+                height: 10%; /* Verhoog de hoogte iets voor de laatste lade */
+            }
         }
         /* ==== EINDE TOEGEVOEGDE CODE ==== */
     </style>
+</head>
 
-    <!-- Overige JavaScript codes hier -->
+<body>
+    <div id="logo-container">
+        <img id="logo" src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png"
+            alt="Bonarius Logo">
+        <button id="bestellijst-knop"
+            style="position: absolute; top: 20px; right: 20px; padding: 10px 20px; background-color: #006699; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Bestellijst</button>
+    </div>
+
+    <div id="title-container">
+        <h1>Rechter Stelling - Vooraanzicht</h1>
+    </div>
+    <div class="content">
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a class="menu-link" data-target="lade-1">Lade 1</a></li>
+                <li><a class="menu-link" data-target="lade-2">Lade 2</a></li>
+                <li><a class="menu-link" data-target="lade-3">Lade 3</a></li>
+                <li><a class="menu-link" data-target="lade-4">Lade 4</a></li>
+                <li><a class="menu-link" data-target="lade-5">Lade 5</a></li>
+                <li><a class="menu-link" data-target="lade-6">Lade 6</a></li>
+                <li><a class="menu-link" data-target="lade-7">Lade 7</a></li>
+            </ul>
+        </div>
+        <div class="container" id="stelling-afbeelding-container">
+            <img id="stelling-afbeelding" src="Rechter_Stelling_Bus.jpg" alt="Rechter Stelling">
+            <div id="lade-1" class="lade-overlay">Lade 1</div>
+            <div id="lade-2" class="lade-overlay">Lade 2</div>
+            <div id="lade-3" class="lade-overlay">Lade 3</div>
+            <div id="lade-4" class="lade-overlay">Lade 4</div>
+            <div id="lade-5" class="lade-overlay">Lade 5</div>
+            <div id="lade-6" class="lade-overlay">Lade 6</div>
+            <div id="lade-7" class="lade-overlay">Lade 7</div>
+        </div>
+    </div>
+    <footer>
+        <p style="margin: 0; padding: 20px; background-color: #006699; color: #fff; text-align: center;">
+            &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+        </p>
+    </footer>
+
+    <div id="bestellijst-container">
+        <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
+        <ul id="bestellijst"></ul>
+        <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
+        <button id="leeg-bestellijst" style="background: #cc0000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Leegmaken</button>
+        <button id="stuur-bestellijst" style="background: #008000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Bestellijst naar e-mail</button>
+    </div>
+
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const menuLinks = document.querySelectorAll('.menu ul li a');
-        const ladeOverlays = document.querySelectorAll('.lade-overlay');
-        const bestellijstKnop = document.getElementById('bestellijst-knop');
-        const bestellijstContainer = document.createElement('div');
+        document.addEventListener("DOMContentLoaded", function () {
+            const ladeInhoud = {
+                'lade-1': ['Schroeven (ID: 001)', 'Bouten (ID: 002)', 'Moeren (ID: 003)'],
+                'lade-2': ['Pluggen (ID: 004)', 'Draadnagels (ID: 005)'],
+                'lade-3': ['Ringen (ID: 006)', 'Ankers (ID: 007)'],
+                'lade-4': ['Tiewraps (ID: 008)', 'Lijm (ID: 009)'],
+                'lade-5': ['Tape (ID: 010)', 'Veiligheidsbrillen (ID: 011)'],
+                'lade-6': ['Handschoenen (ID: 012)', 'Helmen (ID: 013)'],
+                'lade-7': ['Hamers (ID: 014)', 'Schroevendraaiers (ID: 015)']
+            };
 
-        // Bestellijst container
-        bestellijstContainer.id = 'bestellijst-container';
-        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
-        bestellijstContainer.innerHTML = `
-            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
-            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px; font-size: 0.9em;"></ul>
-            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
-            <button id="leeg-bestellijst" style="background: #cc0000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Leegmaken</button>
-            <button id="stuur-bestellijst" style="background: #008000; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Bestellijst naar e-mail</button>
-        `;
-        document.body.appendChild(bestellijstContainer);
+            const ladeOverlays = document.querySelectorAll('.lade-overlay');
 
-        // Load saved bestellijst from localStorage
-        const savedBestellijst = localStorage.getItem('bestellijst');
-        if (savedBestellijst) {
-            document.getElementById('bestellijst').innerHTML = savedBestellijst;
-        }
+            const openLadeModal = (ladeId) => {
+                const inhoud = ladeInhoud[ladeId] || [];
 
-        // Event to open the bestellijst container
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        // Event to close the bestellijst container
-        const sluitBestellijst = bestellijstContainer.querySelector('#sluit-bestellijst');
-        sluitBestellijst.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'none';
-        });
-
-        // Event to clear the bestellijst
-        const leegBestellijst = bestellijstContainer.querySelector('#leeg-bestellijst');
-        leegBestellijst.addEventListener('click', function() {
-            document.getElementById('bestellijst').innerHTML = '';
-            localStorage.removeItem('bestellijst');
-        });
-
-        // New email functionality
-        const stuurBestellijst = bestellijstContainer.querySelector('#stuur-bestellijst');
-        stuurBestellijst.addEventListener('click', function() {
-            const bestellijstItems = Array.from(document.getElementById('bestellijst').children)
-                .map(item => item.textContent)
-                .join('%0A');
-
-            if (bestellijstItems) {
-                const subject = 'Materiaal Bestellijst';
-                const body = `Beste,%0A%0AOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?%0A%0A${bestellijstItems}`;
-                window.location.href = `mailto:?subject=${subject}&body=${body}`;
-
-                // Maak de bestellijst leeg na het versturen
-                document.getElementById('bestellijst').innerHTML = '';
-                localStorage.removeItem('bestellijst');
-            } else {
-                alert('De bestellijst is leeg.');
-            }
-        });
-
-        // Menu link click event to open the corresponding lade
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetLade = document.getElementById(targetId);
-                if (targetLade) {
-                    targetLade.scrollIntoView({ behavior: 'smooth' });
-                    targetLade.dispatchEvent(new Event('click'));
-                }
-            });
-        });
-
-        // Lade click event to open modal
-        ladeOverlays.forEach(lade => {
-            lade.addEventListener('click', function() {
                 const modal = document.createElement('div');
                 modal.className = 'modal-overlay';
                 modal.innerHTML = `
                     <div class="modal-content">
-                        <h3>Inhoud Lade ${lade.id.replace('lade-', '')}</h3>
+                        <h3>Inhoud Lade ${ladeId.replace('lade-', '')}</h3>
                         <ul>
-                            <li><button class="artikel-knop">Artikel 1 (ID: 001)</button></li>
-                            <li><button class="artikel-knop">Artikel 2 (ID: 002)</button></li>
-                            <li><button class="artikel-knop">Artikel 3 (ID: 003)</button></li>
-                            <li><button class="artikel-knop">Artikel 4 (ID: 004)</button></li>
-                            <li><button class="artikel-knop">Artikel 5 (ID: 005)</button></li>
+                            ${inhoud.map(item => `<li><button class="artikel-knop">${item}</button></li>`).join('')}
                         </ul>
                         <button class="close-modal">Sluiten</button>
                     </div>
@@ -352,13 +392,13 @@
                 document.body.appendChild(modal);
 
                 const closeModal = modal.querySelector('.close-modal');
-                closeModal.addEventListener('click', function() {
+                closeModal.addEventListener('click', function () {
                     document.body.removeChild(modal);
                 });
 
                 const artikelKnoppen = modal.querySelectorAll('.artikel-knop');
                 artikelKnoppen.forEach(knop => {
-                    knop.addEventListener('click', function() {
+                    knop.addEventListener('click', function () {
                         const artikelNaam = knop.textContent;
                         const aantal = prompt(`Hoeveel van ${artikelNaam} wilt u toevoegen aan de bestellijst?`, '1');
                         if (aantal && !isNaN(aantal) && aantal > 0) {
@@ -374,82 +414,60 @@
                         }
                     });
                 });
+            };
+
+            ladeOverlays.forEach(lade => {
+                lade.addEventListener('click', function () {
+                    openLadeModal(lade.id);
+                });
+            });
+
+            const menuLinks = document.querySelectorAll('.menu-link');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    const target = link.getAttribute('data-target');
+                    openLadeModal(target);
+                });
+            });
+
+            const bestellijstKnop = document.getElementById('bestellijst-knop');
+            const bestellijstContainer = document.getElementById('bestellijst-container');
+            const sluitBestellijstKnop = document.getElementById('sluit-bestellijst');
+            const leegBestellijstKnop = document.getElementById('leeg-bestellijst');
+            const stuurBestellijstKnop = document.getElementById('stuur-bestellijst');
+
+            bestellijstKnop.addEventListener('click', function () {
+                bestellijstContainer.style.display = 'block';
+            });
+
+            sluitBestellijstKnop.addEventListener('click', function () {
+                bestellijstContainer.style.display = 'none';
+            });
+
+            leegBestellijstKnop.addEventListener('click', function () {
+                document.getElementById('bestellijst').innerHTML = '';
+                localStorage.removeItem('bestellijst');
+            });
+
+            stuurBestellijstKnop.addEventListener('click', function () {
+                const bestellijstItems = Array.from(document.getElementById('bestellijst').children)
+                    .map(item => item.textContent)
+                    .join('%0A');
+
+                if (bestellijstItems) {
+                    const subject = 'Materiaal Bestellijst';
+                    const body = `Beste,%0A%0AOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?%0A%0A${bestellijstItems}`;
+                    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+
+                    // Maak de bestellijst leeg na het versturen
+                    document.getElementById('bestellijst').innerHTML = '';
+                    localStorage.removeItem('bestellijst');
+                } else {
+                    alert('De bestellijst is leeg.');
+                }
             });
         });
-    });
-</script>
-    <style>
-        .highlight-overlay {
-            background-color: rgba(255, 255, 0, 0.4) !important;
-        }
-    </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const bestellijstKnop = document.getElementById('bestellijst-knop');
-        const bestellijstContainer = document.createElement('div');
-        bestellijstContainer.id = 'bestellijst-container';
-        bestellijstContainer.style = "position: fixed; top: 70px; right: 20px; background: #ffffff; padding: 20px; border: 2px solid #006699; border-radius: 12px; max-width: 400px; display: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);";
-        bestellijstContainer.innerHTML = `
-            <h4 style="margin: 0; padding-bottom: 10px; font-size: 1.5em; border-bottom: 2px solid #006699;">Bestellijst</h4>
-            <ul id="bestellijst" style="list-style: none; padding: 10px; margin: 10px 0; background: #f9f9f9; border-radius: 8px;"></ul>
-            <button id="sluit-bestellijst" style="background: #006699; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold;">Sluiten</button>
-        `;
-        document.body.appendChild(bestellijstContainer);
-
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        bestellijstKnop.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'block';
-        });
-
-        document.addEventListener('click', function(event) {
-            const sluitBestellijst = document.getElementById('sluit-bestellijst');
-        sluitBestellijst.addEventListener('click', function() {
-            bestellijstContainer.style.display = 'none';
-        });
-    });
-</script>
-</head>
-<body>
-    <div id="logo-container">
-        <img id="logo" src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bonarius Logo">
-        <button id="bestellijst-knop" style="position: absolute; top: 20px; right: 20px; padding: 10px 20px; background-color: #006699; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Bestellijst</button>
-    </div>
-    
-    <div id="title-container">
-        <h1>Rechter Stelling - Vooraanzicht</h1>
-    </div>
-    <div class="content">
-        <div class="menu">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="#lade-1">Lade 1</a></li>
-                <li><a href="#lade-2">Lade 2</a></li>
-                <li><a href="#lade-3">Lade 3</a></li>
-                <li><a href="#lade-4">Lade 4</a></li>
-                <li><a href="#lade-5">Lade 5</a></li>
-                <li><a href="#lade-6">Lade 6</a></li>
-                <li><a href="#lade-7">Lade 7</a></li>
-            </ul>
-        </div>
-        <div class="container" id="stelling-afbeelding-container">
-            <div id="stelling-afbeelding-container">
-                <img id="stelling-afbeelding" src="Afbeeldingen/Rechter_Stelling_Bus.jpg" alt="Rechter Stelling">
-                <div id="lade-1" class="lade-overlay">Lade 1</div>
-                <div id="lade-2" class="lade-overlay">Lade 2</div>
-                <div id="lade-3" class="lade-overlay">Lade 3</div>
-                <div id="lade-4" class="lade-overlay">Lade 4</div>
-                <div id="lade-5" class="lade-overlay">Lade 5</div>
-                <div id="lade-6" class="lade-overlay">Lade 6</div>
-                <div id="lade-7" class="lade-overlay">Lade 7</div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
-    </footer>
+    </script>
 </body>
+
 </html>
