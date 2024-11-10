@@ -113,7 +113,7 @@
     <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" style="width: 240px; height: auto; position: absolute; top: 50px; left: 50px;">
 
 <div class="stelling-container" style="position: absolute; top: 350px; left: 240px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: auto;">
-    <img src="Afbeeldingen/Rechter_Stelling_Bus.jpg" alt="Rechter Stelling" style="width: 100%; max-width: 550px; height: auto;">
+    <img src="Afbeeldingen/Rechter Stelling Bus.jpg" alt="Rechter Stelling" style="width: 100%; max-width: 550px; height: auto;">
 </div>
 
 
@@ -217,13 +217,29 @@
 
     // Functie om de bestellijst te tonen of te verbergen wanneer op de knop wordt gedrukt
     document.querySelector('.bestellijst-button').onclick = function() {
-        const orderList = document.getElementById("orderList");
-        if (orderList.style.display === "none" || orderList.style.display === "") {
-            orderList.style.display = "block";
-        } else {
-            orderList.style.display = "none";
-        }
-    };
+    const orderList = document.getElementById("orderList");
+    if (orderList.style.display === "none" || orderList.style.display === "") {
+        orderList.style.display = "block";
+        loadOrderList();
+    } else {
+        orderList.style.display = "none";
+    }
+};
+
+
+      // Functie om de bestellijst te laden vanuit local storage
+function loadOrderList() {
+    const orderList = document.getElementById("order-items");
+    orderList.innerHTML = ""; // Leeg de huidige lijst
+    let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    currentOrder.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        orderList.appendChild(listItem);
+    });
+}
+
+  
     // Functie om de bestellijst te sluiten
 function closeOrderList() {
     const orderList = document.getElementById("orderList");
@@ -234,7 +250,9 @@ function closeOrderList() {
 function clearOrderList() {
     const orderList = document.getElementById("order-items");
     orderList.innerHTML = "";
+    localStorage.removeItem("orderList");
 }
+
 
 // Functie om de bestellijst naar een e-mailadres te verzenden
 function sendOrderListToEmail() {
@@ -268,14 +286,25 @@ function sendOrderListToEmail() {
         const listItem = document.createElement('li');
         listItem.textContent = `${amount} x ${item}`;
         orderList.appendChild(listItem);
+
+        // Voeg het artikel toe aan local storage
+        let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+        currentOrder.push(`${amount} x ${item}`);
+        localStorage.setItem("orderList", JSON.stringify(currentOrder));
     } else {
         alert("Ongeldige invoer. Voer een geldig aantal in.");
     }
 }
-  
+
+  // Bij het laden van de pagina de bestellijst vanuit local storage laden
+window.onload = function() {
+    loadOrderList();
+};
+
 </script>
 
 
   
 </body>
 </html>
+
