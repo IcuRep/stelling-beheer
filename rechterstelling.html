@@ -116,8 +116,6 @@
     <img src="Afbeeldingen/Rechter_Stelling_Bus.jpg" alt="Rechter Stelling" style="width: 100%; max-width: 550px; height: auto;">
 </div>
 
-
-
 <div class="vertical-menu">
     <h2>Menu</h2>
     <button onclick="openModal('Lade 1')"><b>Lade 1</b></button>
@@ -129,10 +127,9 @@
     <button onclick="openModal('Lade 7')"><b>Lade 7</b></button>
 </div>
 
+<button class="bestellijst-button">Bestellijst</button>
 
-    <button class="bestellijst-button">Bestellijst</button>
-  
-  <div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+<div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
     <h3>Bestellijst</h3>
     <ul id="order-items" style="list-style-type: none; padding: 0;"></ul>
     <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
@@ -142,12 +139,11 @@
     </div>
 </div>
 
-
-    <footer style="position: absolute; bottom: 30px; width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
-        2024 Bonarius Bedrijven. Alle rechten voorbehouden.
-    </footer>
+<footer style="position: absolute; bottom: 30px; width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
+    2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+</footer>
  
-  <div id="myModal" class="modal">
+<div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Artikelen voor <span id="lade-title"></span></h2>
@@ -157,7 +153,6 @@
         <button onclick="closeModal()" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">Sluiten</button>
     </div>
 </div>
-
 
 <script>
     // Modal elementen
@@ -171,32 +166,33 @@
     switch (lade) {
         case 'Lade 1':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Schroeven\")'>Schroeven</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Moeren\")'>Moeren</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Bouten\")'>Bouten</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Schroeven\")'>Schroeven</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Moeren\")'>Moeren</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Bouten\")'>Bouten</button>"
                     + "</div>";
             break;
         case 'Lade 2':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Ringen\")'>Ringen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Pluggen\")'>Pluggen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Spijkers\")'>Spijkers</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Ringen\")'>Ringen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Pluggen\")'>Pluggen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Spijkers\")'>Spijkers</button>"
                     + "</div>";
             break;
         case 'Lade 3':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Kabels\")'>Kabels</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Slangen\")'>Slangen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Koppelingen\")'>Koppelingen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Kabels\")'>Kabels</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Slangen\")'>Slangen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Koppelingen\")'>Koppelingen</button>"
                     + "</div>";
             break;
         // Voeg hier meer lades toe
         default:
-            content = "<button style='text-align: left; padding: 10px;'>Geen artikelen beschikbaar voor deze lade.</button>";
+            content = "<button style='text-align: left; padding: 10px; font-size: 20px;'>Geen artikelen beschikbaar voor deze lade.</button>";
     }
     document.getElementById("modal-items").innerHTML = content;
     modal.style.display = "block";
 }
+
 
     // Sluit de modal wanneer de 'x' wordt aangeklikt
     span.onclick = function() {
@@ -226,7 +222,6 @@
     }
 };
 
-
       // Functie om de bestellijst te laden vanuit local storage
 function loadOrderList() {
     const orderList = document.getElementById("order-items");
@@ -239,7 +234,6 @@ function loadOrderList() {
     });
 }
 
-  
     // Functie om de bestellijst te sluiten
 function closeOrderList() {
     const orderList = document.getElementById("orderList");
@@ -252,7 +246,6 @@ function clearOrderList() {
     orderList.innerHTML = "";
     localStorage.removeItem("orderList");
 }
-
 
 // Functie om de bestellijst naar een e-mailadres te verzenden
 function sendOrderListToEmail() {
@@ -271,7 +264,7 @@ function sendOrderListToEmail() {
         window.location.href = `mailto:${email}?subject=Uw Bestellijst&body=${encodeURIComponent(orderText)}`;
 
         // Leeg de bestellijst nadat de mail geopend is
-        orderItems.innerHTML = "";
+        clearOrderList();
 
         // Sluit de bestellijst nadat de mail is verstuurd
         closeOrderList();
@@ -295,7 +288,6 @@ function sendOrderListToEmail() {
         alert("Ongeldige invoer. Voer een geldig aantal in.");
     }
 }
-
   // Bij het laden van de pagina de bestellijst vanuit local storage laden
 window.onload = function() {
     loadOrderList();
@@ -303,8 +295,6 @@ window.onload = function() {
 
 </script>
 
-
-  
 </body>
 </html>
 
