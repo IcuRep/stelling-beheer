@@ -169,6 +169,7 @@
     const modal = document.getElementById("myModal");
     const span = document.getElementsByClassName("close")[0];
 
+
     // Functie om de modal te openen met artikelen voor de juiste lade
     function openModal(lade) {
     document.getElementById("lade-title").innerText = lade;
@@ -176,32 +177,33 @@
     switch (lade) {
         case 'Lade 1':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Knelsok\")'>Knelsok</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Knie 15\")'>Knie 15</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Bouten\")'>Bouten</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Schroeven\")'>Schroeven</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Moeren\")'>Moeren</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Bouten\")'>Bouten</button>"
                     + "</div>";
             break;
         case 'Lade 2':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Ringen\")'>Ringen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Pluggen\")'>Pluggen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Spijkers\")'>Spijkers</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Ringen\")'>Ringen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Pluggen\")'>Pluggen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Spijkers\")'>Spijkers</button>"
                     + "</div>";
             break;
         case 'Lade 3':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Kabels\")'>Kabels</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Slangen\")'>Slangen</button>"
-                    + "<button style='text-align: left; padding: 10px;' onclick='addToOrder(\"Koppelingen\")'>Koppelingen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Kabels\")'>Kabels</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Slangen\")'>Slangen</button>"
+                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Koppelingen\")'>Koppelingen</button>"
                     + "</div>";
             break;
         // Voeg hier meer lades toe
         default:
-            content = "<button style='text-align: left; padding: 10px;'>Geen artikelen beschikbaar voor deze lade.</button>";
+            content = "<button style='text-align: left; padding: 10px; font-size: 20px;'>Geen artikelen beschikbaar voor deze lade.</button>";
     }
     document.getElementById("modal-items").innerHTML = content;
     modal.style.display = "block";
 }
+
 
     // Sluit de modal wanneer de 'x' wordt aangeklikt
     span.onclick = function() {
