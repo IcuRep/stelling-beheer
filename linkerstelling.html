@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linker Stelling - Vooraanzicht</title>
     <style>
-        body {
+        
+    body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Zorg ervoor dat de inhoud in kolommen wordt geplaatst */
-    min-height: 100vh; /* Gebruik de volledige schermhoogte */
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     background-color: #ffffff;
+    padding-bottom: 60px; /* Ruimte voor de vaste footer zodat deze niet over de inhoud heen valt */
 }
         .vertical-menu {
             width: 140px;
@@ -126,8 +128,12 @@ footer {
     background-color: #004466;
     color: white;
     font-size: 14px;
-    margin-top: auto; /* Zorg ervoor dat de footer altijd onderaan de pagina staat */
+    position: fixed; /* Zorg ervoor dat de footer altijd onderaan het scherm staat */
+    bottom: 0; /* Plaats de footer aan de onderkant van het scherm */
+    left: 0;
+    z-index: 10; /* Zorg ervoor dat de footer boven andere elementen staat */
 }
+
       
     </style>
 </head>
