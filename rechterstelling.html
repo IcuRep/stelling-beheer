@@ -103,43 +103,76 @@
         color: #000;
         text-decoration: none;
     }
+
+    footer {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background-color: #004466;
+        color: white;
+        font-size: 14px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
       
     </style>
 </head>
 <body>
-    <header style="width: 100%; background-color: #004466; padding: 10px; text-align: center; position: absolute; top: 180px;">
-        <h1 style="color: white; margin: 0; font-size: 28px;">Rechter Stelling - Vooraanzicht</h1>
-    </header>
-    <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" style="width: 240px; height: auto; position: absolute; top: 50px; left: 50px;">
+    <div class="content">
+        <header style="width: 100%; background-color: #004466; padding: 10px; text-align: center; position: absolute; top: 180px;">
+            <h1 style="color: white; margin: 0; font-size: 28px;">Rechter Stelling - Vooraanzicht</h1>
+        </header>
+        <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" style="width: 240px; height: auto; position: absolute; top: 50px; left: 50px;">
 
-<div class="stelling-container" style="position: absolute; top: 350px; left: 240px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: auto;">
-    <img src="Afbeeldingen/Rechter_Stelling_Bus.jpg" alt="Rechter Stelling" style="width: 100%; max-width: 550px; height: auto;">
-</div>
+        <div class="stelling-container" style="position: absolute; top: 350px; left: 240px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: auto;">
+            <img src="Afbeeldingen/Rechter Stelling Bus.jpg" alt="Rechter Stelling" style="width: 100%; max-width: 550px; height: auto;">
+        </div>
 
-<div class="vertical-menu">
-    <h2>Menu</h2>
-    <button onclick="openModal('Lade 1')"><b>Lade 1</b></button>
-    <button onclick="openModal('Lade 2')"><b>Lade 2</b></button>
-    <button onclick="openModal('Lade 3')"><b>Lade 3</b></button>
-    <button onclick="openModal('Lade 4')"><b>Lade 4</b></button>
-    <button onclick="openModal('Lade 5')"><b>Lade 5</b></button>
-    <button onclick="openModal('Lade 6')"><b>Lade 6</b></button>
-    <button onclick="openModal('Lade 7')"><b>Lade 7</b></button>
-</div>
+        <div class="vertical-menu">
+            <h2>Menu</h2>
+            <button onclick="openModal('Lade 1')"><b>Lade 1</b></button>
+            <button onclick="openModal('Lade 2')"><b>Lade 2</b></button>
+            <button onclick="openModal('Lade 3')"><b>Lade 3</b></button>
+            <button onclick="openModal('Lade 4')"><b>Lade 4</b></button>
+            <button onclick="openModal('Lade 5')"><b>Lade 5</b></button>
+            <button onclick="openModal('Lade 6')"><b>Lade 6</b></button>
+            <button onclick="openModal('Lade 7')"><b>Lade 7</b></button>
+        </div>
 
-<button class="bestellijst-button">Bestellijst</button>
+        <button class="bestellijst-button">Bestellijst</button>
 
-<div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    <h3>Bestellijst</h3>
-    <ul id="order-items" style="list-style-type: none; padding: 0;"></ul>
-    <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
-        <button onclick="closeOrderList()" style="flex: 1; padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer;">Sluiten</button>
-        <button onclick="clearOrderList()" style="flex: 1; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Leegmaken Lijst</button>
-        <button onclick="sendOrderListToEmail()" style="flex: 1; padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Verzenden naar Mail</button>
+        <div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <h3>Bestellijst</h3>
+            <ul id="order-items" style="list-style-type: none; padding: 0;"></ul>
+            <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
+                <button onclick="closeOrderList()" style="flex: 1; padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer;">Sluiten</button>
+                <button onclick="clearOrderList()" style="flex: 1; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Leegmaken Lijst</button>
+                <button onclick="sendOrderListToEmail()" style="flex: 1; padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Verzenden naar Mail</button>
+            </div>
+        </div>
     </div>
-</div>
 
-<footer style="position: absolute; bottom: 30px; width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
+    <footer style="width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px; position: fixed; bottom: 0; left: 0;">
+        2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Artikelen voor <span id="lade-title"></span></h2>
+            <div id="modal-content">
+                <ul id="modal-items" style="list-style-type: none; padding: 0; text-align: left;"></ul>
+            </div>
+            <button onclick="closeModal()" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">Sluiten</button>
+        </div>
+    </div>
+</body>
+
+
+
+
+<footer style="position: fixed; bottom: 0px; width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
     2024 Bonarius Bedrijven. Alle rechten voorbehouden.
 </footer>
  
@@ -297,4 +330,3 @@ window.onload = function() {
 
 </body>
 </html>
-
