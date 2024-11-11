@@ -147,7 +147,14 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-       
+
+ @media (max-width: 600px) {
+    #orderList {
+        width: 95%; /* Gebruik bijna de volledige breedte van het scherm */
+        left: 50%; /* Horizontaal centreren */
+        transform: translateX(-50%); /* Zorg ervoor dat de container netjes in het midden staat */
+    }       
+ }      
       
     </style>
 </head>
