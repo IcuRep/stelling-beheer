@@ -18,15 +18,16 @@
 
 
         .vertical-menu {
-            width: 140px;
-            background-color: #006699;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 360px;
-            left: 30px;
-        }
+    width: 140px;
+    background-color: #006699;
+    border-radius: 8px;
+    overflow-y: auto; /* Voeg dit toe */
+    max-height: calc(100vh - 260px); /* Beperkt de hoogte zodat het in de viewport past */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 260px;
+    left: 30px;
+}
         .vertical-menu h2 {
             margin: 0;
             padding: 15px;
