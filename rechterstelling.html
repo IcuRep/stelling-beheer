@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rechter Stelling - Vooraanzicht</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            position: relative;
-        }
+
+     body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+    padding-bottom: 60px; /* Ruimte voor de vaste footer zodat deze niet over de inhoud heen valt */
+}
+
+
         .vertical-menu {
             width: 140px;
             background-color: #006699;
@@ -133,7 +135,20 @@
     }
 }
 
-      
+    footer {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: #004466;
+    color: white;
+    font-size: 14px;
+    position: fixed; /* Zorg ervoor dat de footer altijd onderaan het scherm staat */
+    bottom: 0; /* Plaats de footer aan de onderkant van het scherm */
+    left: 0;
+    z-index: 10; /* Zorg ervoor dat de footer boven andere elementen staat */
+}
+
+  
     </style>
 </head>
 <body>
@@ -171,7 +186,7 @@
         </div>
     </div>
 
-<footer style="width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px; position: absolute; bottom: 0; left: 0;">
+<footer style="width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
     2024 Bonarius Bedrijven. Alle rechten voorbehouden.
 </footer>
 
