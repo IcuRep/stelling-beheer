@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linker Stelling - Vooraanzicht</title>
     <style>
-        
+
     body {
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     background-color: #ffffff;
-    padding-bottom: 60px; /* Ruimte voor de vaste footer zodat deze niet over de inhoud heen valt */
+    overflow-x: hidden; /* Verwijder horizontaal scrollen */
 }
         .vertical-menu {
-            width: 140px;
-            background-color: #006699;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 260px;
-            left: 30px;
-        }
+    width: 140px;
+    background-color: #006699;
+    border-radius: 8px;
+    overflow-y: auto; /* Voeg dit toe */
+    max-height: calc(100vh - 260px); /* Beperkt de hoogte zodat het in de viewport past */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 260px;
+    left: 30px;
+}
         .vertical-menu h2 {
             margin: 0;
             padding: 15px;
@@ -134,6 +134,14 @@ footer {
     z-index: 10; /* Zorg ervoor dat de footer boven andere elementen staat */
 }
 
+header {
+    width: 100%;
+    background-color: #004466;
+    padding: 10px;
+    text-align: center;
+    position: relative; /* Verander van absolute naar relative */
+    top: 0; /* Verwijder indien onnodig */
+}
       
     </style>
 </head>
@@ -146,7 +154,7 @@ footer {
 
 
 <div class="stelling-container" style="position: absolute; top: 290px; left: 240px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: auto;">
-    <img src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling" style="width: 100%; max-width: 550px; height: auto;">
+    <img src="Afbeeldingen/Linker Stelling Bus.jpg" alt="Linker Stelling" style="width: 100%; max-width: 550px; height: auto;">
 </div>
 
 
@@ -182,8 +190,8 @@ footer {
 
 
 <footer style="width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
-    2024 Bonarius Bedrijven. Alle rechten voorbehouden.
-</footer>
+        2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+    </footer>
 
  
   <div id="myModal" class="modal">
