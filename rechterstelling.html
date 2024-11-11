@@ -118,11 +118,19 @@
 
 #logo {
     width: 100%;
-    max-width: 240px; /* Maximale breedte voor grotere schermen */
+    max-width: 240px;
     height: auto;
     position: absolute;
     top: 50px;
     left: 50px;
+}
+
+@media (max-width: 600px) {
+    #logo {
+        left: 20px;
+        top: 20px;
+        max-width: 150px;
+    }
 }
 
       
