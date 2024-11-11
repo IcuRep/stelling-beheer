@@ -6,15 +6,13 @@
     <title>Linker Stelling - Vooraanzicht</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            position: relative;
-        }
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Zorg ervoor dat de inhoud in kolommen wordt geplaatst */
+    min-height: 100vh; /* Gebruik de volledige schermhoogte */
+    margin: 0;
+    background-color: #ffffff;
+}
         .vertical-menu {
             width: 140px;
             background-color: #006699;
@@ -121,7 +119,15 @@
     }
 }
 
-
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: #004466;
+    color: white;
+    font-size: 14px;
+    margin-top: auto; /* Zorg ervoor dat de footer altijd onderaan de pagina staat */
+}
       
     </style>
 </head>
