@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voorraadbeheer Opel Movano</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knop Rechtsboven</title>
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -147,6 +152,28 @@
                 font-size: 0.7em;
             }
         }
+
+ /* Stijlen voor de knop */
+    .generate-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50; /* Groene kleur voor de knop */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Optionele hover-effecten */
+    .generate-button:hover {
+      background-color: #45a049;
+    }
+
     </style>
 </head>
 <body>
@@ -157,7 +184,7 @@
         <h1>Voorraadbeheer Opel Movano</h1>
     </div>
     <div class="container">
-        <img id="bus-afbeelding" src="Afbeeldingen/Boven_aanzicht_bus.jpg" alt="Bovenkant bedrijfsbus">
+        <img id="bus-afbeelding" src="bovenkant-bus-afbeelding.jpg" alt="Bovenkant bedrijfsbus">
         <a href="linkerstelling.html">
             <div id="stelling-linkerzijde" class="stelling-overlay" title="Stelling Linkerzijde"></div>
         </a>
@@ -168,5 +195,9 @@
     <footer>
         &copy; 2024 Bonarius Bedrijven. Alle rechten voorbehouden.
     </footer>
+
+<!-- Knop met link -->
+  <a href="https://icurep.github.io/stelling-beheer/code_generator.html" class="generate-button">Code Genereren</a>
+
 </body>
 </html>
