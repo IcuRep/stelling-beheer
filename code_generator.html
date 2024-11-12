@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Code Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label, input, button { display: block; margin-top: 10px; }
+        #output { white-space: pre-wrap; background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h2>Genereer HTML Code voor Artikel</h2>
+    <label for="artikel">Artikel:</label>
+    <input type="text" id="artikel" placeholder="Voer artikelnaam in">
+    
+    <label for="bestelnummer">Bestelnummer:</label>
+    <input type="text" id="bestelnummer" placeholder="Voer bestelnummer in">
+    
+    <button onclick="generateCode()">Genereer HTML Code</button>
+    <button onclick="copyToClipboard()">Kopieer alle codes naar klembord</button>
+    
+    <h3>Gegenereerde Code:</h3>
+    <pre id="output"></pre>
+    
+    <script>
+        function generateCode() {
+            // Haal waarden op van invoervelden
+            var artikel = document.getElementById("artikel").value;
+            var bestelnummer = document.getElementById("bestelnummer").value;
+            
+            // Genereer HTML code met 20 spaties aan het begin
+            var htmlCode = `                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\\"${artikel} (${bestelnummer})\\")'>${artikel}</button>"\n`;
+            
+            // Voeg de gegenereerde code toe aan het bestaande output-veld
+            document.getElementById("output").textContent += htmlCode;
+            
+            // Maak de invoervelden leeg voor de volgende invoer
+            document.getElementById("artikel").value = "";
+            document.getElementById("bestelnummer").value = "";
+        }
+
+        function copyToClipboard() {
+            // Selecteer de gegenereerde code en kopieer naar het klembord
+            var output = document.getElementById("output");
+            navigator.clipboard.writeText(output.textContent)
+                .then(() => alert("De code is gekopieerd naar het klembord!"))
+                .catch((err) => alert("Er is een fout opgetreden bij het kopiëren: " + err));
+        }
+    </script>
+</body>
+</html>
