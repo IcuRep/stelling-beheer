@@ -17,42 +17,42 @@
 }
 
 
+    .vertical-menu {
+        width: 140px;
+        background-color: #006699;
+        border-radius: 8px;
+        overflow-y: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: fixed; /* Changed from absolute to fixed */
+        top: 260px;
+        left: 30px;
+        z-index: 999; /* Ensure menu stays above other elements */
+    }
+
+    @media screen and (max-width: 768px) {
         .vertical-menu {
-    width: 140px;
-    background-color: #006699;
-    border-radius: 8px;
-    overflow-y: auto; /* Voeg dit toe */
-    max-height: calc(100vh - 260px); /* Beperkt de hoogte zodat het in de viewport past */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 260px;
-    left: 30px;
-}
-        .vertical-menu h2 {
-            margin: 0;
-            padding: 15px;
-            font-size: 18px;
-            color: white;
-            background-color: #004466;
-            text-align: center;
+            width: 120px;
+            top: 300px; /* Adjusted for mobile header */
+            left: 10px;
+            max-height: calc(100vh - 400px); /* Adjusted height for mobile */
         }
+
         .vertical-menu button {
-            width: 100%;
-            padding: 15px;
-            text-align: left;
-            font-size: 16px;
-            color: white;
-            background-color: #006699;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 12px;
+            font-size: 14px;
         }
-        .vertical-menu button:hover {
-            background-color: #575757;
+
+        .stelling-container {
+            left: 150px !important; /* Adjust container to not overlap menu */
+            padding: 20px !important;
         }
-        .vertical-menu button:focus {
-            outline: none;
-            background-color: #757575;
+    }
+
+    @media screen and (orientation: portrait) {
+        .vertical-menu {
+            display: block !important; /* Force display in portrait mode */
+            position: fixed;
+            width: 100px;
         }
         .bestellijst-button {
             position: fixed;
