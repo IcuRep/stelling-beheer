@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linker Stelling - Vooraanzicht</title>
+    <title>Rechter Stelling - Vooraanzicht</title>
     <style>
 
-    body {
+     body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     background-color: #ffffff;
-    padding-bottom: 200px; /* Verhoog de padding aan de onderkant naar 100px voor extra ruimte */
+    padding-bottom: 60px; /* Ruimte voor de vaste footer zodat deze niet over de inhoud heen valt */
 }
 
+
         .vertical-menu {
-            width: 140px;
-            background-color: #006699;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 260px;
-            left: 30px;
-        }
+    width: 140px;
+    background-color: #006699;
+    border-radius: 8px;
+    overflow-y: auto; /* Voeg dit toe */
+    max-height: calc(100vh - 260px); /* Beperkt de hoogte zodat het in de viewport past */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 260px;
+    left: 30px;
+}
         .vertical-menu h2 {
             margin: 0;
             padding: 15px;
@@ -56,42 +58,63 @@
             background-color: #ff6600;
             color: white;
             border: none;
-            padding: 15px 25px;
+            padding: 10px 20px;
             text-align: center;
             font-size: 16px;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
             position: absolute;
-            top: 50px;
-            right: 30px;
+            top: 125px;
+            right: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s;
         }
+
         .bestellijst-button:hover {
             background-color: #e65c00;
         }
+.home-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 125px;
+    left: 15px; /* Adjust this value to position it correctly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
 
-      /* Modal styling */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .modal-content {
-        background-color: #ffffff;
-        margin: 15% auto;
-        padding: 20px;
-        border-radius: 8px;
-        width: 80%;
-        max-width: 400px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
-    }
+.home-button:hover {
+    background-color: #e65c00;
+}
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-height: 80vh; /* Limit the height */
+            overflow-y: auto; /* Make it scrollable */
+        }
     .close {
         color: #aaa;
         float: right;
@@ -103,6 +126,18 @@
     .close:focus {
         color: #000;
         text-decoration: none;
+    }
+
+    footer {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background-color: #004466;
+        color: white;
+        font-size: 14px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
     }
 
 #logo {
@@ -122,7 +157,7 @@
     }
 }
 
-footer {
+    footer {
     width: 100%;
     text-align: center;
     padding: 15px;
@@ -135,14 +170,14 @@ footer {
     z-index: 10; /* Zorg ervoor dat de footer boven andere elementen staat */
 }
 
- #orderList {
+    #orderList {
     display: none; 
     position: absolute; 
     right: 0; /* Verander van 30px naar 0 voor betere aanpassing */
     top: 150px;
-    width: 90%; /* Zorg ervoor dat de breedte flexibel is */
-    max-width: 400px; /* Maximum breedte om niet te groot te worden op grotere schermen */
-    padding: 20px;
+    width: 100%; /* Zorg ervoor dat de breedte flexibel is */
+    max-width: 330px; /* Maximum breedte om niet te groot te worden op grotere schermen */
+    padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -154,23 +189,40 @@ footer {
         left: 50%; /* Horizontaal centreren */
         transform: translateX(-50%); /* Zorg ervoor dat de container netjes in het midden staat */
     }       
- }      
-      
+ }     
+  
     </style>
 </head>
 <body>
-    <header style="width: 100%; background-color: #004466; padding: 10px; text-align: center; position: absolute; top: 180px;">
-        <h1 style="color: white; margin: 0; font-size: 28px;">Linker Stelling - Vooraanzicht</h1>
-    </header>
+    <div class="content">
+        <header style="width: 100%; background-color: #004466; padding: 10px; text-align: center; position: absolute; top: 180px;">
+            <h1 style="color: white; margin: 0; font-size: 28px;">Linker Stelling - Vooraanzicht</h1>
+        </header>
+        <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" id="logo">
+        
+<style>
+    /* Add this media query for smaller screens */
+    @media (max-width: 600px) {
+        .stelling-container {
+            position: relative;
+            top: 20px;
+            left: 0;
+            padding: 10px;
+            max-width: 100%;
+            width: auto;
+        }
 
-    <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" id="logo">
+        .stelling-container img {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
 
-
-<div class="stelling-container" style="position: absolute; top: 290px; left: 240px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 90%; width: auto;">
-    <img src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling" style="width: 100%; max-width: 550px; height: auto;">
+<!-- Update the .stelling-container styles -->
+<div class="stelling-container" style="position: absolute; top: 270px; left: 180px; padding: 40px; background-color: #f4f4f4; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 100%; width: auto;">
+    <img src="Afbeeldingen/Linker_Stelling_Bus.jpg" alt="Linker Stelling" style="width: 100%; max-width: 640px; height: auto;">
 </div>
-
-
 
 <div class="vertical-menu">
     <h2>Menu</h2>
@@ -188,42 +240,44 @@ footer {
     <button onclick="openModal('Lade 12')"><b>Lade 12</b></button>
 </div>
 
+<!-- Home Button -->
+<button class="home-button" onclick="window.location.href='index.html'">Home</button>
 
-    <button class="bestellijst-button">Bestellijst</button>
-  
-  <div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    <h3>Bestellijst</h3>
-    <ul id="order-items" style="list-style-type: none; padding: 0;"></ul>
-    <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
-        <button onclick="closeOrderList()" style="flex: 1; padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer;">Sluiten</button>
-        <button onclick="clearOrderList()" style="flex: 1; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Leegmaken Lijst</button>
-        <button onclick="sendOrderListToEmail()" style="flex: 1; padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Verzenden naar Mail</button>
+<!-- Order List Button -->
+<button class="bestellijst-button">Bestellijst</button>
+
+        <div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <h3>Bestellijst</h3>
+            <ul id="order-items" style="list-style-type: none; padding: 0;"></ul>
+            <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
+                <button onclick="closeOrderList()" style="flex: 1; padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer;">Sluiten</button>
+                <button onclick="clearOrderList()" style="flex: 1; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Leegmaken Lijst</button>
+                <button onclick="sendOrderListToEmail()" style="flex: 1; padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Verzenden naar Mail</button>
+            </div>
+        </div>
     </div>
-</div>
-
 
 <footer style="width: 100%; text-align: center; padding: 15px; background-color: #004466; color: white; font-size: 14px;">
-        2024 Bonarius Bedrijven. Alle rechten voorbehouden.
-    </footer>
+    2024 Bonarius Bedrijven. Alle rechten voorbehouden.
+</footer>
 
- 
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Artikelen voor <span id="lade-title"></span></h2>
-        <div id="modal-content">
-            <ul id="modal-items" style="list-style-type: none; padding: 0; text-align: left;"></ul>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Artikelen voor <span id="lade-title"></span></h2>
+            <div id="modal-content">
+                <ul id="modal-items" style="list-style-type: none; padding: 0; text-align: left;"></ul>
+            </div>
+            <button onclick="closeModal()" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">Sluiten</button>
         </div>
-        <button onclick="closeModal()" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">Sluiten</button>
     </div>
-</div>
-
+</body>
 
 <script>
     // Modal elementen
     const modal = document.getElementById("myModal");
     const span = document.getElementsByClassName("close")[0];
-
 
     // Functie om de modal te openen met artikelen voor de juiste lade
     function openModal(lade) {
@@ -232,23 +286,23 @@ footer {
     switch (lade) {
         case 'Lade 1':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Schroeven\")'>Schroeven</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Moeren\")'>Moeren</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Bouten\")'>Bouten</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Knelring messing 12mm (0557831)\")'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/64/28/26256428.jpg' alt='Knelring messing 12mm' style='width: 30px; height: 30px; margin-right: 10px;'>Knelring messing 12mm (Standaard hoeveelheid: 10)</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Knelring messing 15mm (0557832)\")'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/64/28/26256428.jpg' alt='Knelring messing 15mm' style='width: 30px; height: 30px; margin-right: 10px;'>Knelring messing 15mm (Standaard hoeveelheid: 10)</button>"
                     + "</div>";
             break;
         case 'Lade 2':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Ringen\")'>Ringen</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Pluggen\")'>Pluggen</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Spijkers\")'>Spijkers</button>"
+                + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Eindkoppeling knel 12mm (0557061)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/51/24/26235124.jpg' alt='Eindkoppeling knel 12mm' style='width: 30px; height: 30px; margin-right: 10px;'>Eindkoppeling knel 12mm (Standaard hoeveelheid: 6)</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Eindkoppeling knel 15mm (0557062)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/51/24/26235124.jpg' alt='Eindkoppeling knel 15mm' style='width: 30px; height: 30px; margin-right: 10px;'>Eindkoppeling knel 15mm (Standaard hoeveelheid: 6)</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Eindkoppeling knel 22mm (0557063)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/51/24/26235124.jpg' alt='Eindkoppeling knel 22mm' style='width: 30px; height: 30px; margin-right: 10px;'>Eindkoppeling knel 22mm (Standaard hoeveelheid: 6)</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Eindkoppeling knel 28mm (0557064)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/51/24/26235124.jpg' alt='Eindkoppeling knel 28mm' style='width: 30px; height: 30px; margin-right: 10px;'>Eindkoppeling knel 28mm (Standaard hoeveelheid: 6)</button>"
                     + "</div>";
             break;
         case 'Lade 3':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Kabels\")'>Kabels</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Slangen\")'>Slangen</button>"
-                    + "<button style='text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Koppelingen\")'>Koppelingen</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Kabels\")'><img src='path/to/image17.jpg' alt='Kabels' style='width: 30px; height: 30px; margin-right: 10px;'>Kabels</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Slangen\")'><img src='path/to/image18.jpg' alt='Slangen' style='width: 30px; height: 30px; margin-right: 10px;'>Slangen</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Koppelingen\")'><img src='path/to/image19.jpg' alt='Koppelingen' style='width: 30px; height: 30px; margin-right: 10px;'>Koppelingen</button>"
                     + "</div>";
             break;
         // Voeg hier meer lades toe
@@ -288,7 +342,6 @@ footer {
     }
 };
 
-
       // Functie om de bestellijst te laden vanuit local storage
 function loadOrderList() {
     const orderList = document.getElementById("order-items");
@@ -301,7 +354,6 @@ function loadOrderList() {
     });
 }
 
-  
     // Functie om de bestellijst te sluiten
 function closeOrderList() {
     const orderList = document.getElementById("orderList");
@@ -314,7 +366,6 @@ function clearOrderList() {
     orderList.innerHTML = "";
     localStorage.removeItem("orderList");
 }
-
 
 // Functie om de bestellijst naar een e-mailadres te verzenden
 function sendOrderListToEmail() {
@@ -333,7 +384,7 @@ function sendOrderListToEmail() {
         window.location.href = `mailto:${email}?subject=Uw Bestellijst&body=${encodeURIComponent(orderText)}`;
 
         // Leeg de bestellijst nadat de mail geopend is
-        orderItems.innerHTML = "";
+        clearOrderList();
 
         // Sluit de bestellijst nadat de mail is verstuurd
         closeOrderList();
@@ -357,7 +408,6 @@ function sendOrderListToEmail() {
         alert("Ongeldige invoer. Voer een geldig aantal in.");
     }
 }
-
   // Bij het laden van de pagina de bestellijst vanuit local storage laden
 window.onload = function() {
     loadOrderList();
@@ -365,6 +415,5 @@ window.onload = function() {
 
 </script>
 
-  
 </body>
 </html>
