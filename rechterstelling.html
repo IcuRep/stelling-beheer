@@ -190,44 +190,7 @@
         transform: translateX(-50%); /* Zorg ervoor dat de container netjes in het midden staat */
     }       
  }     
-
-.search-container {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    width: 300px;
-}
-
-#search-field {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.search-results {
-    position: absolute;
-    top: 40px;
-    width: 100%;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.search-results div {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.search-results div:hover {
-    background-color: #f0f0f0;
-}
-        
+  
     </style>
 </head>
 <body>
@@ -236,12 +199,6 @@
             <h1 style="color: white; margin: 0; font-size: 28px;">Rechter Stelling - Vooraanzicht</h1>
         </header>
         <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" id="logo">
-
-   <!-- Search Field and Results List -->
-<div class="search-container">
-    <input type="text" id="search-field" placeholder="Zoek artikel..." oninput="searchItems()">
-    <div id="search-results" class="search-results"></div>
-</div>     
         
 <style>
     /* Add this media query for smaller screens */
@@ -310,42 +267,6 @@
             <button onclick="closeModal()" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">Sluiten</button>
         </div>
     </div>
-
-<script>
-    const items = [
-        { name: "Artikel 1", bestelnummer: "12345" },
-        { name: "Artikel 2", bestelnummer: "67890" },
-        { name: "Artikel 3", bestelnummer: "54321" },
-        // Voeg hier meer artikelen toe
-    ];
-
-    function searchItems() {
-        const query = document.getElementById("search-field").value.toLowerCase();
-        const results = items.filter(item => item.name.toLowerCase().includes(query));
-        displayResults(results);
-    }
-
-    function displayResults(results) {
-        const resultsContainer = document.getElementById("search-results");
-        resultsContainer.innerHTML = "";
-        results.forEach(item => {
-            const resultDiv = document.createElement("div");
-            resultDiv.textContent = `${item.name} (${item.bestelnummer})`;
-            resultDiv.onclick = () => addToOrder(item.name, item.bestelnummer);
-            resultsContainer.appendChild(resultDiv);
-        });
-    }
-
-    function addToOrder(name, bestelnummer) {
-        const orderList = document.getElementById("order-items");
-        const orderItem = document.createElement("li");
-        orderItem.textContent = `${name} (${bestelnummer})`;
-        orderList.appendChild(orderItem);
-        document.getElementById("search-results").innerHTML = ""; // Clear search results
-        document.getElementById("search-field").value = ""; // Clear search field
-    }
-</script>
-    
 </body>
 
 <script>
