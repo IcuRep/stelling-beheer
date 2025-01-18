@@ -87,29 +87,20 @@
     .modal-content {
         background-color: #ffffff;
         margin: 15% auto;
-        padding: 10px; /* Ruimte rondom de inhoud */
+        padding: 20px;
         border-radius: 8px;
         width: 80%;
-        max-height: 600px; /* Maximale hoogte van de inhoud */
         max-width: 400px;
-        overflow-y: auto; /* Activeer verticale scrollbalk */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
-        border: 1px solid #ccc; /* Optioneel: een rand voor visuele scheiding */
-        position: relative; /* Zorgt dat sticky werkt */
     }
-    #close-button {
-    position: sticky;
-    bottom: 10px; /* Houdt de knop 10px boven de onderkant van de modal */
-    left: 50%; /* Zorgt dat de knop in het midden staat */
-    transform: translateX(-50%); /* Centreert de knop horizontaal */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
     .close:hover,
     .close:focus {
         color: #000;
