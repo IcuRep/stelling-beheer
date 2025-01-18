@@ -93,8 +93,11 @@
         max-width: 400px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
+        position: relative; /* Zorgt dat sticky werkt */
     }
     .close {
+        position: sticky;
+        bottom: 0; /* Zorgt dat de knop aan de onderkant blijft plakken */
         color: #aaa;
         float: right;
         font-size: 28px;
