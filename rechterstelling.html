@@ -83,8 +83,6 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        position: relative; /* Zorgt dat sticky werkt */
-        overflow: hidden; /* Verberg inhoud buiten modal */
     }
     .modal-content {
         background-color: #ffffff;
@@ -93,16 +91,10 @@
         border-radius: 8px;
         width: 80%;
         max-width: 400px;
-        max-height: 600px;
-        overflow-y: auto; /* Activeer verticale scrollbalk */
-        border: 1px solid #ccc; /* Optioneel: een rand voor visuele scheiding */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
     }
     .close {
-        position: absolute; /* Absolute positionering binnen de modal */
-        bottom: 10px; /* Altijd 10px boven de onderkant van de modal */
-        left: 50%; /* Centreer horizontaal */
         color: #aaa;
         float: right;
         font-size: 28px;
