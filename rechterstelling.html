@@ -82,9 +82,12 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 130px;
-    margin-left: 10px;
-    display: inline-block;
+    position: fixed;
+    top: 30px;
+    right: 150px; /* Adjust this value to position it correctly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    z-index: 1000; /* Ensure it stays on top */
 }
 
 .home-button:hover {
@@ -197,9 +200,6 @@
             <h1 style="color: white; margin: 0; font-size: 28px;">Rechter Stelling - Vooraanzicht</h1>
         </header>
         <img src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/BaBE/XvaTr-KYBPTA.png" alt="Bedrijfslogo" id="logo">
-
-<!-- Home Button -->
-<button class="home-button" onclick="window.location.href='index.html'">Home</button>
         
 <style>
     /* Add this media query for smaller screens */
@@ -236,7 +236,11 @@
             <button onclick="openModal('Lade 7')"><b>Lade 7</b></button>
         </div>
 
-        <button class="bestellijst-button">Bestellijst</button>
+<!-- Home Button -->
+<button class="home-button" onclick="window.location.href='index.html'">Home</button>
+
+<!-- Order List Button -->
+<button class="bestellijst-button">Order List</button>
 
         <div id="orderList" style="display: none; position: absolute; right: 30px; top: 150px; width: 400px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
             <h3>Bestellijst</h3>
