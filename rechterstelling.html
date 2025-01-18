@@ -96,9 +96,10 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
         border: 1px solid #ccc; /* Optioneel: een rand voor visuele scheiding */
+        position: relative; /* Zorgt dat sticky werkt */
     }
     #close-button {
-    position: absolute;
+    position: sticky;
     bottom: 10px; /* Houdt de knop 10px boven de onderkant van de modal */
     left: 50%; /* Zorgt dat de knop in het midden staat */
     transform: translateX(-50%); /* Centreert de knop horizontaal */
