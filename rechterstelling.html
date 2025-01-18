@@ -84,6 +84,7 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         position: relative; /* Zorgt dat sticky werkt */
+        overflow: hidden; /* Verberg inhoud buiten modal */
     }
     .modal-content {
         background-color: #ffffff;
@@ -99,8 +100,9 @@
         text-align: center;
     }
     .close {
-        position: sticky;
+        position: absolute; /* Absolute positionering binnen de modal */
         bottom: 0; /* Zorgt dat de knop aan de onderkant blijft plakken */
+        left: 50%; /* Centreer horizontaal */
         color: #aaa;
         float: right;
         font-size: 28px;
