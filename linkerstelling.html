@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rechter Stelling - Vooraanzicht</title>
+    <title>Linker Stelling - Vooraanzicht</title>
     <style>
 
      body {
@@ -15,13 +15,22 @@
     background-color: #ffffff;
     padding-bottom: 60px; /* Ruimte voor de vaste footer zodat deze niet over de inhoud heen valt */
 }
-
+        
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+    padding-bottom: 100px; /* Add more space at the bottom of the page */
+}
 
         .vertical-menu {
     width: 140px;
     background-color: #006699;
     border-radius: 8px;
-    overflow-y: auto; /* Voeg dit toe */
+    overflow-y: auto; /* Make the menu scrollable */
     max-height: calc(100vh - 130px); /* Beperkt de hoogte zodat het in de viewport past */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
