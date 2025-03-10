@@ -532,13 +532,13 @@
 };
 
       // Functie om de bestellijst te laden vanuit local storage
-function loadOrderList() {
+      function loadOrderList() {
     const orderList = document.getElementById("order-items");
     orderList.innerHTML = ""; // Leeg de huidige lijst
-    let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
     currentOrder.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.textContent = item;
+        listItem.textContent = `${item.quantity} x ${item.name}`;
         orderList.appendChild(listItem);
     });
 }
@@ -581,18 +581,26 @@ function sendOrderListToEmail() {
 }
 
   // Functie om artikelen toe te voegen aan de bestellijst
-    function addToOrder(item) {
+  function addToOrder(item) {
     const amount = prompt(`Hoeveel ${item} wilt u toevoegen aan de bestellijst?`, "1");
     if (amount !== null && amount !== "" && !isNaN(amount) && parseInt(amount) > 0) {
         const orderList = document.getElementById("order-items");
-        const listItem = document.createElement('li');
-        listItem.textContent = `${amount} x ${item}`;
-        orderList.appendChild(listItem);
+        const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+        const existingItemIndex = currentOrder.findIndex(orderItem => orderItem.name === item);
 
-        // Voeg het artikel toe aan local storage
-        let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
-        currentOrder.push(`${amount} x ${item}`);
+        if (existingItemIndex !== -1) {
+            // Update the quantity of the existing item
+            currentOrder[existingItemIndex].quantity += parseInt(amount);
+        } else {
+            // Add the new item to the order list
+            currentOrder.push({ name: item, quantity: parseInt(amount) });
+        }
+
+        // Save the updated order list to local storage
         localStorage.setItem("orderList", JSON.stringify(currentOrder));
+
+        // Update the displayed order list
+        loadOrderList();
     } else {
         alert("Ongeldige invoer. Voer een geldig aantal in.");
     }
