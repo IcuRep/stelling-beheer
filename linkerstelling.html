@@ -390,7 +390,7 @@
                     break;
         case 'Lade 4':
             content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
-                + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Perssok Profipress Gas koper 15x15mm Viega (0566001)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/92/34/11859234.jpg' alt='Perssok Profipress Gas koper 15x15mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>Perssok Profipress Gas koper 15x15mm Viega (Standaard hoeveelheid: 6)</button>"
+                    + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Perssok Profipress Gas koper 15x15mm Viega (0566001)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/92/34/11859234.jpg' alt='Perssok Profipress Gas koper 15x15mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>Perssok Profipress Gas koper 15x15mm Viega (Standaard hoeveelheid: 6)</button>"
                     + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Perssok Profipress Gas koper 22x22mm Viega (0566003)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/92/36/11859236.jpg' alt='Perssok Profipress Gas koper 22x22mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>Perssok Profipress Gas koper 22x22mm Viega (Standaard hoeveelheid: 6)</button>"
                     + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Perssok Profipress Gas koper 28x28mm Viega (0566004)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/92/37/11859237.jpg' alt='Perssok Profipress Gas koper 28x28mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>Perssok Profipress Gas koper 28x28mm Viega (Standaard hoeveelheid: 6)</button>"
                     + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"Perssok Profipress Gas koper 35x35mm Viega (0566005)\", 6)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/92/38/11859238.jpg' alt='Perssok Profipress Gas koper 35x35mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>Perssok Profipress Gas koper 35x35mm Viega (Standaard hoeveelheid: 6)</button>"
@@ -418,6 +418,10 @@
                     + "<button style='display: flex; align-items: center; text-align: left; padding: 10px; font-size: 15px;' onclick='addToOrder(\"T-koppeling Profipress Gas koper 35x35x35mm Viega (0566259)\", 4)'><img src='https://pimassetsprdst.blob.core.windows.net/assets/apc_JPG300X300/93/71/11859371.jpg' alt='T-koppeling Profipress Gas koper 35x35x35mm Viega' style='width: 30px; height: 30px; margin-right: 10px;'>T-koppeling Profipress Gas koper 35x35x35mm Viega (Standaard hoeveelheid: 4)</button>"
                     + "</div>";                
             break;
+                    case 'Lade 5':
+            content = "<div style='display: flex; flex-direction: column; gap: 10px;'>"
+
+                    + "</div>";                 
         // Voeg hier meer lades toe
         default:
             content = "<button style='text-align: left; padding: 10px; font-size: 20px;'>Geen artikelen beschikbaar voor deze lade.</button>";
@@ -456,13 +460,13 @@
 };
 
       // Functie om de bestellijst te laden vanuit local storage
-function loadOrderList() {
+      function loadOrderList() {
     const orderList = document.getElementById("order-items");
     orderList.innerHTML = ""; // Leeg de huidige lijst
-    let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
     currentOrder.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.textContent = item;
+        listItem.textContent = `${item.quantity} x ${item.name}`;
         orderList.appendChild(listItem);
     });
 }
@@ -505,18 +509,26 @@ function sendOrderListToEmail() {
 }
 
   // Functie om artikelen toe te voegen aan de bestellijst
-    function addToOrder(item) {
+  function addToOrder(item) {
     const amount = prompt(`Hoeveel ${item} wilt u toevoegen aan de bestellijst?`, "1");
     if (amount !== null && amount !== "" && !isNaN(amount) && parseInt(amount) > 0) {
         const orderList = document.getElementById("order-items");
-        const listItem = document.createElement('li');
-        listItem.textContent = `${amount} x ${item}`;
-        orderList.appendChild(listItem);
+        const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+        const existingItemIndex = currentOrder.findIndex(orderItem => orderItem.name === item);
 
-        // Voeg het artikel toe aan local storage
-        let currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
-        currentOrder.push(`${amount} x ${item}`);
+        if (existingItemIndex !== -1) {
+            // Update the quantity of the existing item
+            currentOrder[existingItemIndex].quantity += parseInt(amount);
+        } else {
+            // Add the new item to the order list
+            currentOrder.push({ name: item, quantity: parseInt(amount) });
+        }
+
+        // Save the updated order list to local storage
         localStorage.setItem("orderList", JSON.stringify(currentOrder));
+
+        // Update the displayed order list
+        loadOrderList();
     } else {
         alert("Ongeldige invoer. Voer een geldig aantal in.");
     }
