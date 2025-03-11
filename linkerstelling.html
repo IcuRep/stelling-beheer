@@ -168,26 +168,26 @@
     z-index: 10; /* Zorg ervoor dat de footer boven andere elementen staat */
 }
 
-    #orderList {
+#orderList {
     display: none; 
     position: absolute; 
-    right: 0; /* Verander van 30px naar 0 voor betere aanpassing */
+    right: 0;
     top: 150px;
-    width: 100%; /* Zorg ervoor dat de breedte flexibel is */
-    max-width: 330px; /* Maximum breedte om niet te groot te worden op grotere schermen */
+    width: 100%;
+    max-width: 600px; /* Increased from 330px */
     padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
- @media (max-width: 600px) {
+@media (max-width: 600px) {
     #orderList {
-        width: 95%; /* Gebruik bijna de volledige breedte van het scherm */
-        left: 50%; /* Horizontaal centreren */
-        transform: translateX(-50%); /* Zorg ervoor dat de container netjes in het midden staat */
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
     }       
- }     
+}    
   
     </style>
 </head>
@@ -463,13 +463,28 @@
       // Functie om de bestellijst te laden vanuit local storage
       function loadOrderList() {
     const orderList = document.getElementById("order-items");
-    orderList.innerHTML = ""; // Leeg de huidige lijst
+    orderList.innerHTML = ""; // Clear the current list
     const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
-    currentOrder.forEach(item => {
+    currentOrder.forEach((item, index) => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${item.quantity} x ${item.name}`;
+        listItem.style.display = 'flex';
+        listItem.style.justifyContent = 'space-between';
+        listItem.style.alignItems = 'center';
+        listItem.style.marginBottom = '10px';
+        listItem.innerHTML = `
+            <span>${item.quantity} x ${item.name}</span>
+            <button onclick="removeFromOrder(${index})" style="padding: 5px 10px; background-color: #ff4444; color: white; border: none; border-radius: 5px; cursor: pointer;">Verwijderen</button>
+        `;
         orderList.appendChild(listItem);
     });
+}
+
+// Add the removeFromOrder function:
+function removeFromOrder(index) {
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    currentOrder.splice(index, 1);
+    localStorage.setItem("orderList", JSON.stringify(currentOrder));
+    loadOrderList();
 }
 
     // Functie om de bestellijst te sluiten
