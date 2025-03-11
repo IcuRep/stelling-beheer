@@ -532,16 +532,7 @@
 };
 
       // Functie om de bestellijst te laden vanuit local storage
-      function loadOrderList() {
-    const orderList = document.getElementById("order-items");
-    orderList.innerHTML = ""; // Leeg de huidige lijst
-    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
-    currentOrder.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${item.quantity} x ${item.name}`;
-        orderList.appendChild(listItem);
-    });
-}
+      If I have added items to the order list, I would like to be able to remove them without having to clear the entire list
 
     // Functie om de bestellijst te sluiten
 function closeOrderList() {
