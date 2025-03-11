@@ -532,7 +532,26 @@
 };
 
       // Functie om de bestellijst te laden vanuit local storage
-      If I have added items to the order list, I would like to be able to remove them without having to clear the entire list
+      function loadOrderList() {
+    const orderList = document.getElementById("order-items");
+    orderList.innerHTML = ""; // Clear the current list
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    currentOrder.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            ${item.quantity} x ${item.name}
+            <button onclick="removeFromOrder(${index})" style="margin-left: 10px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">Verwijderen</button>
+        `;
+        orderList.appendChild(listItem);
+    });
+}
+
+function removeFromOrder(index) {
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    currentOrder.splice(index, 1); // Remove the item at the specified index
+    localStorage.setItem("orderList", JSON.stringify(currentOrder)); // Save the updated order list
+    loadOrderList(); // Reload the order list to reflect the changes
+}
 
     // Functie om de bestellijst te sluiten
 function closeOrderList() {
