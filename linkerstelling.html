@@ -502,26 +502,25 @@ function clearOrderList() {
 
 // Functie om de bestellijst naar een e-mailadres te verzenden
 function sendOrderListToEmail() {
-    const orderItems = document.getElementById("order-items");
-    let greeting = "Beste,\n\nOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?\n\n";
-    let orderText = greeting;
-
-    for (let i = 0; i < orderItems.children.length; i++) {
-        orderText += "- " + orderItems.children[i].textContent + "\n";
-    }
-
-    if (orderItems.children.length === 0) {
+    const currentOrder = JSON.parse(localStorage.getItem("orderList")) || [];
+    
+    if (currentOrder.length === 0) {
         alert("De bestellijst is leeg. Voeg eerst artikelen toe.");
-    } else {
-        const email = "voorbeeld@domein.nl"; // Hier kun je jouw standaard e-mailadres invullen
-        window.location.href = `mailto:${email}?subject=Uw Bestellijst&body=${encodeURIComponent(orderText)}`;
-
-        // Leeg de bestellijst nadat de mail geopend is
-        clearOrderList();
-
-        // Sluit de bestellijst nadat de mail is verstuurd
-        closeOrderList();
+        return;
     }
+
+    let mailBody = "Beste,\n\nOnderstaande materialen komen uit mijn busvoorraad. Zou je deze kunnen bestellen op het project zodat ik deze weer kan aanvullen?\n\n";
+    
+    // Add each item without the delete button text and without bullet points
+    currentOrder.forEach(item => {
+        mailBody += `${item.quantity}x ${item.name}\n`;
+    });
+
+    window.location.href = `mailto:?subject=Bestellijst Bus Voorraad&body=${encodeURIComponent(mailBody)}`;
+    
+    // Clear the list and close after sending
+    clearOrderList();
+    closeOrderList();
 }
 
   // Functie om artikelen toe te voegen aan de bestellijst
